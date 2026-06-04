@@ -1,24 +1,22 @@
-# Fixture Mundial 2026 Interactivo - PWA
+# Fixture Mundial 2026 PWA
 
-Esta versión funciona como aplicación web instalable. Incluye:
+Aplicación web instalable para celular con fixture interactivo, resultados, avance automático de ganadores por fases, marcado de partidos con localStorage y calendario general `.ics`.
 
-- `index.html`: aplicación principal.
-- `manifest.webmanifest`: configuración de instalación.
-- `service-worker.js`: caché offline básico.
-- `icons/`: íconos para Android, Chrome, Edge y Apple.
+## Cómo subir a GitHub Pages
 
-## Cómo subirlo a GitHub Pages
+1. Descomprime este ZIP.
+2. Sube todos los archivos al repositorio `Mundial2026`.
+3. Verifica que `index.html`, `manifest.webmanifest`, `service-worker.js`, `.nojekyll` y la carpeta `icons/` queden en la raíz del repositorio.
+4. En GitHub entra a **Settings > Pages**.
+5. En **Build and deployment**, selecciona la rama principal y carpeta `/root`.
+6. Abre la URL pública con HTTPS, por ejemplo: `https://masivostv-cell.github.io/Mundial2026/`.
 
-1. Crea un repositorio nuevo en GitHub.
-2. Sube todos estos archivos manteniendo la misma estructura.
-3. Entra a **Settings > Pages**.
-4. En **Build and deployment**, selecciona **Deploy from a branch**.
-5. Selecciona la rama `main` y la carpeta `/root`.
-6. Guarda y abre el enlace público que te da GitHub Pages.
+## Instalación en Android
 
-## Instalación en celular
+1. Abre la URL en Google Chrome.
+2. Toca el botón **Instalar app en mi celular**.
+3. Si no aparece la ventana automática, toca los tres puntos de Chrome y elige **Instalar app** o **Agregar a pantalla principal**.
 
-- Android/Chrome: abre el enlace de GitHub Pages y toca **Instalar app** o el menú de Chrome > **Agregar a pantalla principal**.
-- iPhone/Safari: abre el enlace, toca **Compartir** y luego **Agregar a pantalla de inicio**.
+## Nota importante
 
-Importante: la instalación como app requiere HTTPS. GitHub Pages ya lo ofrece. Si abres el archivo directamente desde el celular como `file://`, no saldrá como app instalable.
+La instalación PWA solo funciona correctamente publicada por HTTPS. GitHub Pages cumple este requisito. Si abres el archivo localmente como `file://`, Chrome normalmente no lo instala como aplicación.
