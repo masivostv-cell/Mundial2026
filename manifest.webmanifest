@@ -1,0 +1,26 @@
+{
+  "name": "Fixture Mundial 2026 Interactivo",
+  "short_name": "Fixture 2026",
+  "description": "Fixture interactivo del Mundial 2026 con resultados, ganadores, cruces automáticos, localStorage y calendario general.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06120d",
+  "theme_color": "#006b3f",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

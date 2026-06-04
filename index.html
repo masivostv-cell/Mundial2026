@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixture Mundial 2026 Interactivo</title>
+  <meta name="theme-color" content="#006b3f" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Fixture 2026" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" href="icons/icon-192.png" />
+
+  <style>
+    :root{
+      --green:#006b3f; --green2:#00a86b; --gold:#d6a84f; --pink:#f72585; --blue:#00b4d8;
+      --dark:#06120d; --card:#0e241a; --white:#f7fff9; --muted:#c7e8d2; --line:#ffffff20;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);min-height:100vh;background:radial-gradient(circle at 0% 0%,#00ff8848,transparent 30%),radial-gradient(circle at 100% 5%,#f7258550,transparent 25%),radial-gradient(circle at 80% 100%,#00b4d84d,transparent 30%),linear-gradient(145deg,#06120d,#0b2518 55%,#020403)}
+    header{padding:18px 14px 14px;background:rgba(3,14,10,.78);border-bottom:1px solid var(--line)}
+    .wrap{max-width:980px;margin:auto}.hero{display:flex;gap:13px;align-items:center}.logo{width:62px;height:62px;border-radius:22px;background:linear-gradient(140deg,var(--gold),#fff2bd 48%,var(--gold));display:grid;place-items:center;box-shadow:0 12px 28px #0008;animation:float 3s ease-in-out infinite}.logo span{font-size:33px}.hero h1{margin:0;font-size:1.28rem;line-height:1.04}.hero p{margin:5px 0 0;color:#c9ffe1;font-size:.84rem;line-height:1.35}.topCalendar{margin-top:14px;border:1px solid #ffffff24;border-radius:24px;background:linear-gradient(135deg,#ffffff14,#ffffff06);padding:12px;box-shadow:0 18px 35px #0004}.topCalendar strong{display:block;margin-bottom:4px;color:#fff2bd}.topCalendar p{margin:0 0 10px;color:var(--muted);font-size:.78rem;line-height:1.35}.calendarBtn{width:100%;border:0;border-radius:18px;padding:14px 12px;font-weight:1000;cursor:pointer;background:linear-gradient(90deg,var(--gold),#fff2b6,var(--green2));color:#111000;box-shadow:0 12px 24px #0007}.toolbar{display:grid;gap:10px;margin-top:13px}.search input{width:100%;border:0;border-radius:18px;background:#ffffff12;color:white;padding:13px 15px;outline:1px solid #ffffff20}.search input::placeholder{color:#b7cfbf}.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}.chip{border:1px solid #ffffff25;background:#ffffff12;color:white;border-radius:999px;padding:9px 13px;white-space:nowrap;font-weight:800;font-size:.82rem;cursor:pointer}.chip.active{background:linear-gradient(90deg,var(--green2),var(--blue));border-color:transparent;color:#02140d}
+.installBtn{width:100%;border:1px solid #ffffff24;border-radius:18px;padding:14px 12px;font-weight:1000;cursor:pointer;background:linear-gradient(90deg,var(--pink),var(--blue));color:white;box-shadow:0 12px 24px #0007;margin-top:9px}.installHelp{display:none;margin-top:9px;padding:10px;border-radius:16px;background:#ffffff10;border:1px solid #ffffff1e;color:#d8ffe4;font-size:.76rem;line-height:1.35}.installHelp.show{display:block}
+    main{padding:18px 14px 70px}.statusBoard{max-width:980px;margin:0 auto 16px;border:1px solid #ffffff1f;border-radius:28px;background:#06150f99;padding:14px;box-shadow:0 18px 45px #0005}.statusBoard h2{font-size:1rem;margin:0 0 8px;color:#fff2bd}.miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.miniCard{background:#ffffff0d;border:1px solid #ffffff18;border-radius:16px;padding:9px;font-size:.78rem;color:#d8ffe4}.miniCard b{display:block;color:white;font-size:.8rem;margin-bottom:3px}.magazine{max-width:980px;margin:auto;display:grid;gap:16px}.card{position:relative;overflow:hidden;border:1px solid #ffffff18;border-radius:28px;background:linear-gradient(145deg,#123b29,#07150f 62%);box-shadow:0 18px 45px #0008;transform-origin:center;animation:pop .45s ease both}.card::before{content:"";position:absolute;inset:-80px auto auto -80px;width:190px;height:190px;background:radial-gradient(circle,var(--gold),transparent 62%);opacity:.18}.spark{position:absolute;right:-25px;top:42px;width:82px;height:82px;border-radius:24px;background:linear-gradient(135deg,var(--blue),var(--pink));opacity:.16;transform:rotate(20deg)}.cardTop{position:relative;padding:16px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.badge{background:#ffffff14;border:1px solid #ffffff24;border-radius:999px;padding:7px 10px;font-size:.72rem;font-weight:900;color:#e8ffd8}.phase{color:var(--gold);font-weight:1000;letter-spacing:.06em;font-size:.74rem;text-transform:uppercase}.teams{position:relative;padding:0 16px 8px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}.team{text-align:center;min-width:0}.flag{font-size:1.8rem;display:block;filter:drop-shadow(0 8px 8px #0008)}.name{font-weight:1000;font-size:1.03rem;overflow-wrap:anywhere}.seed{display:inline-block;margin-top:4px;color:#c7e8d2;font-size:.72rem;border:1px solid #ffffff20;border-radius:999px;padding:3px 7px;background:#ffffff0d}.vs{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--pink),var(--gold));font-weight:1000;color:#120606;box-shadow:0 10px 20px #0007}.fixtureBox{position:relative;margin:4px 16px 12px;padding:12px;border-radius:22px;background:#ffffff0e;border:1px solid #ffffff18}.scoreRow{display:grid;grid-template-columns:1fr 54px 28px 54px 1fr;gap:7px;align-items:center}.scoreRow label{font-size:.75rem;color:#d8ffe4;font-weight:800}.scoreRow label:first-child{text-align:right}.score{width:54px;border:1px solid #ffffff26;border-radius:14px;background:#ffffff12;color:white;padding:10px 5px;font-size:1.05rem;font-weight:1000;text-align:center;outline:none}.dash{text-align:center;color:var(--gold);font-weight:1000}.winnerLine{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}.winnerPill{border-radius:999px;padding:8px 10px;font-size:.74rem;font-weight:1000;white-space:nowrap;background:#ffffff12;color:#d8ffe4;border:1px solid #ffffff22}.winnerPill.ok{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300}.winnerPill.warn{background:#ffffff12;color:#fff2bd}.info{display:grid;gap:7px;padding:0 16px 14px;color:#d8ffe4;font-size:.88rem}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:0 16px 16px}.btn{border:0;border-radius:16px;padding:12px 10px;font-weight:1000;cursor:pointer;color:white;background:#ffffff16;border:1px solid #ffffff20}.btn.marked{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300}.btn.clear{background:#ffffff0f}.empty{padding:30px;text-align:center;color:#cdebd8}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:#07140f;border:1px solid #ffffff25;color:white;padding:12px 16px;border-radius:18px;box-shadow:0 18px 40px #0009;font-weight:900;z-index:30;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes float{50%{transform:translateY(-5px) rotate(-2deg)}}@media(min-width:760px){.magazine{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:1.8rem}.miniGrid{grid-template-columns:repeat(4,1fr)}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="hero">
+      <div class="logo"><span>🏆</span></div>
+      <div><h1>Fixture Mundial 2026</h1><p>Registra goles y la app reconoce automáticamente ganador, empate y cruces de eliminación.</p></div>
+    </div>
+    <section class="topCalendar">
+      <strong>📅 Calendario general</strong>
+      <p>Botón único arriba. Descarga todos los partidos cargados en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar.</p>
+      <button class="calendarBtn" onclick="downloadAllICS()">Agregar todos los partidos al calendario</button>
+      <button id="installAppBtn" class="installBtn" type="button">📲 Instalar app en mi celular</button>
+      <div id="installHelp" class="installHelp">En iPhone: abre esta página en Safari, toca Compartir y elige “Agregar a pantalla de inicio”. En Android/Chrome: toca el botón Instalar o usa el menú ⋮ y “Agregar a pantalla principal”.</div>
+    </section>
+    <div class="toolbar">
+      <div class="search"><input id="q" placeholder="Buscar equipo, estadio, grupo o fase..." /></div>
+      <div class="tabs" id="tabs"></div>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="statusBoard">
+    <h2>🏁 Avance automático del cuadro</h2>
+    <div class="miniGrid" id="bracketPreview"></div>
+  </section>
+  <section class="magazine" id="list"></section>
+</main>
+<div class="toast" id="toast">Guardado</div>
+<script>
+const FLAGS={
+  'México':'🇲🇽','Sudáfrica':'🇿🇦','Rep. de Corea':'🇰🇷','Chequia':'🇨🇿','Canadá':'🇨🇦','Qatar':'🇶🇦','Suiza':'🇨🇭','Bosnia y Herzegovina':'🇧🇦','Brasil':'🇧🇷','Marruecos':'🇲🇦','Haití':'🇭🇹','Escocia':'🏴','EE. UU.':'🇺🇸','Paraguay':'🇵🇾','Australia':'🇦🇺','Turquía':'🇹🇷','Alemania':'🇩🇪','Ecuador':'🇪🇨','Costa de Marfil':'🇨🇮','Curazao':'🇨🇼','Países Bajos':'🇳🇱','Japón':'🇯🇵','Túnez':'🇹🇳','Suecia':'🇸🇪','Bélgica':'🇧🇪','Irán':'🇮🇷','Egipto':'🇪🇬','Nueva Zelanda':'🇳🇿','España':'🇪🇸','Uruguay':'🇺🇾','Arabia Saudí':'🇸🇦','Cabo Verde':'🇨🇻','Francia':'🇫🇷','Senegal':'🇸🇳','Noruega':'🇳🇴','Irak':'🇮🇶','Argentina':'🇦🇷','Argelia':'🇩🇿','Austria':'🇦🇹','Jordania':'🇯🇴','Portugal':'🇵🇹','Colombia':'🇨🇴','Uzbekistán':'🇺🇿','RD de Congo':'🇨🇩','Inglaterra':'🏴','Croacia':'🇭🇷','Ghana':'🇬🇭','Panamá':'🇵🇦'
+};
+const GROUP_TEAMS={
+ A:['México','Sudáfrica','Rep. de Corea','Chequia'], B:['Canadá','Qatar','Suiza','Bosnia y Herzegovina'], C:['Brasil','Marruecos','Escocia','Haití'], D:['EE. UU.','Paraguay','Australia','Turquía'], E:['Alemania','Ecuador','Costa de Marfil','Curazao'], F:['Países Bajos','Japón','Túnez','Suecia'], G:['Bélgica','Irán','Egipto','Nueva Zelanda'], H:['España','Uruguay','Arabia Saudí','Cabo Verde'], I:['Francia','Senegal','Noruega','Irak'], J:['Argentina','Argelia','Austria','Jordania'], K:['Portugal','Colombia','Uzbekistán','RD de Congo'], L:['Inglaterra','Croacia','Ghana','Panamá']
+};
+const PARTIDOS=[
+{id:1,grupo:'Grupo A',fase:'Fase de grupos',a:'México',b:'Sudáfrica',fecha:'2026-06-11',hora:'15:00',estadio:'Estadio Ciudad de México'},
+{id:2,grupo:'Grupo A',fase:'Fase de grupos',a:'Rep. de Corea',b:'Chequia',fecha:'2026-06-11',hora:'22:00',estadio:'Estadio Guadalajara'},
+{id:3,grupo:'Grupo B',fase:'Fase de grupos',a:'Canadá',b:'Qatar',fecha:'2026-06-12',hora:'15:00',estadio:'Estadio Toronto'},
+{id:4,grupo:'Grupo C',fase:'Fase de grupos',a:'Brasil',b:'Marruecos',fecha:'2026-06-13',hora:'18:00',estadio:'Estadio Nueva York / New Jersey'},
+{id:5,grupo:'Grupo C',fase:'Fase de grupos',a:'Haití',b:'Escocia',fecha:'2026-06-13',hora:'21:00',estadio:'Estadio Gillette'},
+{id:6,grupo:'Grupo D',fase:'Fase de grupos',a:'EE. UU.',b:'Paraguay',fecha:'2026-06-12',hora:'21:00',estadio:'Estadio Los Ángeles'},
+{id:7,grupo:'Grupo D',fase:'Fase de grupos',a:'Australia',b:'Turquía',fecha:'2026-06-13',hora:'00:00',estadio:'Estadio BC Place Vancouver'},
+{id:8,grupo:'Grupo E',fase:'Fase de grupos',a:'Alemania',b:'Ecuador',fecha:'2026-06-14',hora:'16:00',estadio:'Estadio Dallas'},
+{id:9,grupo:'Grupo F',fase:'Fase de grupos',a:'Países Bajos',b:'Japón',fecha:'2026-06-14',hora:'22:00',estadio:'Estadio Monterrey'},
+{id:10,grupo:'Grupo G',fase:'Fase de grupos',a:'Bélgica',b:'Irán',fecha:'2026-06-15',hora:'15:00',estadio:'Estadio Seattle'},
+{id:11,grupo:'Grupo H',fase:'Fase de grupos',a:'España',b:'Uruguay',fecha:'2026-06-15',hora:'12:00',estadio:'Estadio Atlanta'},
+{id:12,grupo:'Grupo I',fase:'Fase de grupos',a:'Francia',b:'Senegal',fecha:'2026-06-16',hora:'15:00',estadio:'Estadio Nueva York / New Jersey'},
+{id:13,grupo:'Grupo J',fase:'Fase de grupos',a:'Argentina',b:'Argelia',fecha:'2026-06-16',hora:'21:00',estadio:'Estadio Kansas City'},
+{id:14,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'RD de Congo',fecha:'2026-06-17',hora:'13:00',estadio:'Estadio Houston'},
+{id:15,grupo:'Grupo K',fase:'Fase de grupos',a:'Uzbekistán',b:'Colombia',fecha:'2026-06-17',hora:'19:00',estadio:'Estadio Toronto'},
+{id:16,grupo:'Grupo L',fase:'Fase de grupos',a:'Inglaterra',b:'Croacia',fecha:'2026-06-17',hora:'16:00',estadio:'Estadio Dallas'},
+{id:17,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'Uzbekistán',fecha:'2026-06-23',hora:'16:00',estadio:'Estadio Boston'},
+{id:18,grupo:'Grupo K',fase:'Fase de grupos',a:'RD de Congo',b:'Colombia',fecha:'2026-06-23',hora:'19:00',estadio:'Estadio Toronto'},
+{id:19,grupo:'Grupo K',fase:'Fase de grupos',a:'RD de Congo',b:'Uzbekistán',fecha:'2026-06-27',hora:'17:00',estadio:'Estadio Filadelfia'},
+{id:20,grupo:'Grupo K',fase:'Fase de grupos',a:'Colombia',b:'Portugal',fecha:'2026-06-27',hora:'17:00',estadio:'Estadio Nueva York / New Jersey'},
+{id:73,grupo:'Eliminación',fase:'Dieciseisavos',a:'2A',b:'2B',fecha:'2026-06-28',hora:'15:00',estadio:'Por confirmar'},
+{id:74,grupo:'Eliminación',fase:'Dieciseisavos',a:'1E',b:'3 A/B/C/D/F',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
+{id:75,grupo:'Eliminación',fase:'Dieciseisavos',a:'1F',b:'2C',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
+{id:76,grupo:'Eliminación',fase:'Dieciseisavos',a:'1C',b:'2F',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
+{id:77,grupo:'Eliminación',fase:'Dieciseisavos',a:'1I',b:'3 C/D/F/G/H',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
+{id:78,grupo:'Eliminación',fase:'Dieciseisavos',a:'2E',b:'2I',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
+{id:79,grupo:'Eliminación',fase:'Dieciseisavos',a:'1A',b:'3 C/E/F/H/I',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
+{id:80,grupo:'Eliminación',fase:'Dieciseisavos',a:'1L',b:'3 E/H/I/J/K',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
+{id:81,grupo:'Eliminación',fase:'Dieciseisavos',a:'1D',b:'3 B/E/F/I/J',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
+{id:82,grupo:'Eliminación',fase:'Dieciseisavos',a:'1G',b:'3 A/E/H/I/J',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
+{id:83,grupo:'Eliminación',fase:'Dieciseisavos',a:'2K',b:'2L',fecha:'2026-07-02',hora:'15:00',estadio:'Por confirmar'},
+{id:84,grupo:'Eliminación',fase:'Dieciseisavos',a:'1H',b:'2J',fecha:'2026-07-02',hora:'15:00',estadio:'Por confirmar'},
+{id:85,grupo:'Eliminación',fase:'Dieciseisavos',a:'1B',b:'3 E/F/G/I/J',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
+{id:86,grupo:'Eliminación',fase:'Dieciseisavos',a:'1J',b:'2H',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
+{id:87,grupo:'Eliminación',fase:'Dieciseisavos',a:'1K',b:'3 D/E/I/J/L',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
+{id:88,grupo:'Eliminación',fase:'Dieciseisavos',a:'2D',b:'2G',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
+{id:89,grupo:'Eliminación',fase:'Octavos de final',a:'G74',b:'G73',fecha:'2026-07-04',hora:'15:00',estadio:'Por confirmar'},
+{id:90,grupo:'Eliminación',fase:'Octavos de final',a:'G77',b:'G75',fecha:'2026-07-04',hora:'15:00',estadio:'Por confirmar'},
+{id:91,grupo:'Eliminación',fase:'Octavos de final',a:'G76',b:'G78',fecha:'2026-07-05',hora:'15:00',estadio:'Por confirmar'},
+{id:92,grupo:'Eliminación',fase:'Octavos de final',a:'G79',b:'G80',fecha:'2026-07-05',hora:'15:00',estadio:'Por confirmar'},
+{id:93,grupo:'Eliminación',fase:'Octavos de final',a:'G83',b:'G84',fecha:'2026-07-06',hora:'15:00',estadio:'Por confirmar'},
+{id:94,grupo:'Eliminación',fase:'Octavos de final',a:'G81',b:'G82',fecha:'2026-07-06',hora:'15:00',estadio:'Por confirmar'},
+{id:95,grupo:'Eliminación',fase:'Octavos de final',a:'G86',b:'G88',fecha:'2026-07-07',hora:'15:00',estadio:'Por confirmar'},
+{id:96,grupo:'Eliminación',fase:'Octavos de final',a:'G85',b:'G87',fecha:'2026-07-07',hora:'15:00',estadio:'Por confirmar'},
+{id:97,grupo:'Eliminación',fase:'Cuartos de final',a:'G89',b:'G90',fecha:'2026-07-09',hora:'15:00',estadio:'Por confirmar'},
+{id:98,grupo:'Eliminación',fase:'Cuartos de final',a:'G93',b:'G94',fecha:'2026-07-10',hora:'15:00',estadio:'Por confirmar'},
+{id:99,grupo:'Eliminación',fase:'Cuartos de final',a:'G91',b:'G92',fecha:'2026-07-11',hora:'15:00',estadio:'Por confirmar'},
+{id:100,grupo:'Eliminación',fase:'Cuartos de final',a:'G95',b:'G96',fecha:'2026-07-11',hora:'15:00',estadio:'Por confirmar'},
+{id:101,grupo:'Eliminación',fase:'Semifinal',a:'G97',b:'G98',fecha:'2026-07-14',hora:'15:00',estadio:'Por confirmar'},
+{id:102,grupo:'Eliminación',fase:'Semifinal',a:'G99',b:'G100',fecha:'2026-07-15',hora:'15:00',estadio:'Por confirmar'},
+{id:103,grupo:'Eliminación',fase:'3er y 4to puesto',a:'P101',b:'P102',fecha:'2026-07-18',hora:'15:00',estadio:'Por confirmar'},
+{id:104,grupo:'Final',fase:'Final',a:'G101',b:'G102',fecha:'2026-07-19',hora:'15:00',estadio:'Por confirmar'}
+];
+const $=s=>document.querySelector(s), list=$('#list'), tabs=$('#tabs'), q=$('#q');
+let filtro='Todos';
+let marcados=JSON.parse(localStorage.getItem('partidosMarcados2026_v2')||'[]');
+let fixture=JSON.parse(localStorage.getItem('fixtureResultados2026_v2')||'{}');
+function toast(msg='Guardado'){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+function saveMarked(){localStorage.setItem('partidosMarcados2026_v2',JSON.stringify(marcados))}
+function saveFixture(){localStorage.setItem('fixtureResultados2026_v2',JSON.stringify(fixture))}
+function getP(id){return PARTIDOS.find(p=>p.id===Number(id))}
+function resultFromGoals(p){const r=fixture[p.id]||{}; if(r.ga===''||r.gb===''||r.ga===undefined||r.gb===undefined)return ''; const ga=Number(r.ga),gb=Number(r.gb); if(Number.isNaN(ga)||Number.isNaN(gb))return ''; if(ga>gb)return teamName(p,'a'); if(gb>ga)return teamName(p,'b'); return 'Empate'}
+function loserFromGoals(p){const r=fixture[p.id]||{}; if(r.ga===''||r.gb===''||r.ga===undefined||r.gb===undefined)return ''; const ga=Number(r.ga),gb=Number(r.gb); if(Number.isNaN(ga)||Number.isNaN(gb)||ga===gb)return ''; if(ga<gb)return teamName(p,'a'); return teamName(p,'b')}
+function winnerOf(id){const p=getP(id); if(!p)return ''; const auto=resultFromGoals(p); return auto && auto!=='Empate'?auto:''}
+function loserOf(id){const p=getP(id); if(!p)return ''; return loserFromGoals(p)}
+function groupTable(letter){const teams=(GROUP_TEAMS[letter]||[]).map(t=>({team:t,pts:0,gf:0,gc:0,dg:0,pj:0})); const map=Object.fromEntries(teams.map(x=>[x.team,x])); PARTIDOS.filter(p=>p.grupo===`Grupo ${letter}`).forEach(p=>{const r=fixture[p.id]||{}; if(r.ga===''||r.gb===''||r.ga===undefined||r.gb===undefined)return; const ga=Number(r.ga),gb=Number(r.gb); if(Number.isNaN(ga)||Number.isNaN(gb))return; const A=map[p.a],B=map[p.b]; if(!A||!B)return; A.pj++;B.pj++;A.gf+=ga;A.gc+=gb;B.gf+=gb;B.gc+=ga; if(ga>gb){A.pts+=3}else if(gb>ga){B.pts+=3}else{A.pts++;B.pts++}}); teams.forEach(t=>t.dg=t.gf-t.gc); return teams.sort((x,y)=>y.pts-x.pts||y.dg-x.dg||y.gf-x.gf||x.team.localeCompare(y.team))}
+function resolveSeed(seed){
+  if(/^G\d+$/.test(seed)) return winnerOf(seed.slice(1)) || seed;
+  if(/^P\d+$/.test(seed)) return loserOf(seed.slice(1)) || seed;
+  if(/^[12][A-L]$/.test(seed)){const pos=Number(seed[0])-1, letter=seed[1]; const t=groupTable(letter)[pos]; return t && t.pj>0?t.team:seed;}
+  return seed;
+}
+function teamName(p,side){return resolveSeed(p[side])}
+function flagFor(name){return FLAGS[name]||(/^[G|P|1|2|3]/.test(name)?'🏳️':'🏆')}
+function saveResult(id,field,value){fixture[id]=fixture[id]||{ga:'',gb:''}; fixture[id][field]=value; saveFixture(); render(); toast('Resultado guardado y cruces actualizados')}
+function clearResult(id){delete fixture[id]; saveFixture(); render(); toast('Resultado borrado')}
+function toggle(id){marcados=marcados.includes(id)?marcados.filter(x=>x!==id):[...marcados,id]; saveMarked(); renderTabs(); render(); toast(marcados.includes(id)?'Partido marcado':'Partido desmarcado')}
+function renderTabs(){let cats=['Todos','Marcados','Fase de grupos','Eliminación','Final']; tabs.innerHTML=cats.map(c=>`<button class="chip ${c===filtro?'active':''}" onclick="filtro='${c}';renderTabs();render()">${c}</button>`).join('')}
+function toICSDate(p){return p.fecha.replaceAll('-','')+'T'+p.hora.replace(':','')+'00'}
+function endTime(p){let [h,m]=p.hora.split(':').map(Number); h=(h+2)%24; return p.fecha.replaceAll('-','')+'T'+String(h).padStart(2,'0')+String(m).padStart(2,'0')+'00'}
+function cleanICS(v){return String(v||'').replace(/\n/g,' ').replace(/,/g,'\\,').replace(/;/g,'\\;')}
+function makeOneEvent(p){const A=teamName(p,'a'),B=teamName(p,'b'),win=resultFromGoals(p); const marcador=fixture[p.id]&&fixture[p.id].ga!==''&&fixture[p.id].gb!==''?` Marcador: ${fixture[p.id].ga}-${fixture[p.id].gb}.`:''; return `BEGIN:VEVENT\nUID:mundial2026-${p.id}@fixture-local\nDTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z\nDTSTART;TZID=America/New_York:${toICSDate(p)}\nDTEND;TZID=America/New_York:${endTime(p)}\nSUMMARY:${cleanICS('Mundial 2026: '+A+' vs '+B)}\nLOCATION:${cleanICS(p.estadio)}\nDESCRIPTION:${cleanICS('Partido '+p.id+' - '+p.fase+'. Horario base ET.'+marcador+(win?' Ganador/resultado: '+win+'.':''))}\nEND:VEVENT`}
+function downloadAllICS(){const blob=new Blob([`BEGIN:VCALENDAR\nVERSION:2.0\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\nPRODID:-//Fixture Mundial 2026//ES\nX-WR-CALNAME:Fixture Mundial 2026\nX-WR-TIMEZONE:America/New_York\n${PARTIDOS.map(makeOneEvent).join('\n')}\nEND:VCALENDAR`],{type:'text/calendar;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mundial-2026-calendario-completo.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href); toast('Calendario general descargado')}
+function renderPreview(){const ids=[89,90,97,98,101,102,103,104]; $('#bracketPreview').innerHTML=ids.map(id=>{const p=getP(id), A=teamName(p,'a'), B=teamName(p,'b'), W=resultFromGoals(p); return `<div class="miniCard"><b>Partido ${id} · ${p.fase}</b>${A} vs ${B}<br>${W?`Resultado: ${W}`:'Pendiente'}</div>`}).join('')}
+function includeByFilter(p){if(filtro==='Todos')return true; if(filtro==='Marcados')return marcados.includes(p.id); if(filtro==='Fase de grupos')return p.fase==='Fase de grupos'; if(filtro==='Eliminación')return p.grupo==='Eliminación'; if(filtro==='Final')return p.grupo==='Final'||p.fase==='3er y 4to puesto'; return true}
+function render(){let term=q.value.toLowerCase(); let data=PARTIDOS.filter(p=>includeByFilter(p)&&`${teamName(p,'a')} ${teamName(p,'b')} ${p.a} ${p.b} ${p.estadio} ${p.grupo} ${p.fase}`.toLowerCase().includes(term)); list.innerHTML=data.length?data.map((p,i)=>{let m=marcados.includes(p.id), r=fixture[p.id]||{ga:'',gb:''}, A=teamName(p,'a'), B=teamName(p,'b'), win=resultFromGoals(p); return `<article class="card" style="animation-delay:${i*35}ms"><div class="spark"></div><div class="cardTop"><div><div class="phase">${p.fase}</div><strong>Partido ${p.id}</strong></div><span class="badge">${p.grupo}</span></div><div class="teams"><div class="team"><span class="flag">${flagFor(A)}</span><div class="name">${A}</div><span class="seed">${p.a}</span></div><div class="vs">VS</div><div class="team"><span class="flag">${flagFor(B)}</span><div class="name">${B}</div><span class="seed">${p.b}</span></div></div><div class="fixtureBox"><div class="scoreRow"><label>${A}</label><input class="score" type="number" min="0" inputmode="numeric" value="${r.ga??''}" onchange="saveResult(${p.id},'ga',this.value)" placeholder="0"><div class="dash">-</div><input class="score" type="number" min="0" inputmode="numeric" value="${r.gb??''}" onchange="saveResult(${p.id},'gb',this.value)" placeholder="0"><label>${B}</label></div><div class="winnerLine"><span class="winnerPill ${win?'ok':'warn'}">${win?('🏅 '+win):'Pendiente por goles'}</span><span class="winnerPill">Avance automático: ${win&&win!=='Empate'?win:'sin clasificado'}</span></div></div><div class="info"><div>📅 ${p.fecha} · ${p.hora} ET</div><div>📍 ${p.estadio}</div></div><div class="actions"><button class="btn ${m?'marked':''}" onclick="toggle(${p.id})">${m?'✓ Guardado':'☆ Marcar'}</button><button class="btn clear" onclick="clearResult(${p.id})">Limpiar resultado</button></div></article>`}).join(''):`<div class="empty">No hay partidos con ese filtro.</div>`; renderPreview()}
+q.addEventListener('input',render); renderTabs(); render();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
+let deferredInstallPrompt = null;
+const installBtn = document.getElementById('installAppBtn');
+const installHelp = document.getElementById('installHelp');
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  if (installBtn) installBtn.style.display = 'block';
+});
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  if (installBtn) installBtn.textContent = '✅ App instalada';
+  if (installHelp) installHelp.classList.remove('show');
+});
+if (installBtn) {
+  installBtn.addEventListener('click', async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+    } else {
+      installHelp.classList.toggle('show');
+    }
+  });
+}
+</script>
+</body>
+</html>
