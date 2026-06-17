@@ -40,10 +40,11 @@
     </div>
     <section class="topCalendar">
       <strong>📅 Calendario general</strong>
-      <p>Botón único arriba. Descarga los 104 partidos del Mundial 2026 en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar. Horario base: ET.</p>
+      <p>Botón único arriba. Descarga los 104 partidos del Mundial 2026 en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar. Fechas revisadas: se muestra hora local de la sede, hora Colombia y ET.</p>
       <button class="calendarBtn" onclick="downloadAllICS()">Agregar todos los partidos al calendario</button>
       <button class="syncBtn" type="button" onclick="autoSyncPastResults()">🔄 Buscar marcadores de partidos pasados</button>
       <div id="syncStatus" class="syncStatus">La app revisa automáticamente los partidos pasados que estén sin marcador.</div>
+      <div class="syncStatus">✅ Versión fechas revisadas v7 · Canadá vs Qatar: 18 junio · Ecuador vs Curazao: 20 junio.</div>
       <button id="installAppBtn" class="installBtn" type="button">📲 Instalar app en mi celular</button>
       <div id="installHelp" class="installHelp">En iPhone: abre esta página en Safari, toca Compartir y elige “Agregar a pantalla de inicio”. En Android/Chrome: toca el botón Instalar o usa el menú ⋮ y “Agregar a pantalla principal”.</div>
     </section>
@@ -221,6 +222,24 @@ function normName(v){return String(v||'').toLowerCase().normalize('NFD').replace
 function aliasesFor(team){return (TEAM_ALIASES[team]||[team]).map(normName)}
 function realTeamSeed(seed){return GROUP_TEAMS && Object.values(GROUP_TEAMS).some(arr=>arr.includes(seed))}
 function kickoffDate(p){return new Date(`${p.fecha}T${p.hora}:00-04:00`)}
+function venueTimezone(p){
+  const e=(p.estadio||'').toLowerCase();
+  if(e.includes('vancouver')) return 'America/Vancouver';
+  if(e.includes('los ángeles')||e.includes('los angeles')||e.includes('san francisco')||e.includes('seattle')||e.includes('levi')||e.includes('sofi')||e.includes('lumen')) return 'America/Los_Angeles';
+  if(e.includes('ciudad de méxico')||e.includes('ciudad de mexico')||e.includes('guadalajara')||e.includes('akron')||e.includes('azteca')) return 'America/Mexico_City';
+  if(e.includes('monterrey')||e.includes('bbva')) return 'America/Monterrey';
+  if(e.includes('houston')||e.includes('dallas')||e.includes('kansas city')||e.includes('arrowhead')||e.includes('nrg')||e.includes('at&t')) return 'America/Chicago';
+  if(e.includes('toronto')) return 'America/Toronto';
+  return 'America/New_York';
+}
+function formatTZ(date,tz){
+  return new Intl.DateTimeFormat('es-CO',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(date).replace(',', '');
+}
+function dateLine(p){
+  const d=kickoffDate(p), tz=venueTimezone(p);
+  return `📅 Sede: ${formatTZ(d,tz)} · Colombia: ${formatTZ(d,'America/Bogota')}`;
+}
+function etLine(p){return `🕒 ET: ${p.fecha} · ${p.hora}`}
 function matchAlreadyPassed(p){return Date.now() > kickoffDate(p).getTime() + (150*60*1000)}
 function ymd(fecha){return fecha.replaceAll('-','')}
 function updateSyncStatus(msg){const el=document.querySelector('#syncStatus'); if(el) el.textContent=msg}
@@ -280,11 +299,11 @@ function renderPreview(){const ids=[89,90,97,98,101,102,103,104]; $('#bracketPre
 function includeByFilter(p){if(filtro==='Todos')return true; if(filtro==='Marcados')return marcados.includes(p.id); if(filtro==='Fase de grupos')return p.fase==='Fase de grupos'; if(filtro==='Eliminación')return p.grupo==='Eliminación'; if(filtro==='Final')return p.grupo==='Final'||p.fase==='3er y 4to puesto'; return true}
 function render(){
   let term=q.value.toLowerCase();
-  let data=PARTIDOS.filter(p=>includeByFilter(p)&&`${teamName(p,'a')} ${teamName(p,'b')} ${p.a} ${p.b} ${p.estadio} ${p.grupo} ${p.fase}`.toLowerCase().includes(term)).sort((a,b)=>kickoffDate(a)-kickoffDate(b)||a.id-b.id);
+  let data=PARTIDOS.filter(p=>includeByFilter(p)&&`${teamName(p,'a')} ${teamName(p,'b')} ${p.a} ${p.b} ${p.estadio} ${p.grupo} ${p.fase} ${p.fecha} ${p.hora}`.toLowerCase().includes(term)).sort((a,b)=>kickoffDate(a)-kickoffDate(b)||a.id-b.id);
   list.innerHTML=data.length?data.map((p,i)=>{
     let m=marcados.includes(p.id), r=fixture[p.id]||{ga:'',gb:''}, A=teamName(p,'a'), B=teamName(p,'b'), win=resultFromGoals(p);
     let sourceBadge=r.auto?`<span class="winnerPill">🔄 Marcador automático</span>`:(hasScore(r)?`<span class="winnerPill">✍️ Marcador manual</span>`:'');
-    return `<article class="card" style="animation-delay:${i*35}ms"><div class="spark"></div><div class="cardTop"><div><div class="phase">${p.fase}</div><strong>Partido ${p.id}</strong></div><span class="badge">${p.grupo}</span></div><div class="teams"><div class="team"><span class="flag">${flagFor(A)}</span><div class="name">${A}</div><span class="seed">${p.a}</span></div><div class="vs">VS</div><div class="team"><span class="flag">${flagFor(B)}</span><div class="name">${B}</div><span class="seed">${p.b}</span></div></div><div class="fixtureBox"><div class="scoreRow"><label>${A}</label><input class="score" type="number" min="0" inputmode="numeric" value="${r.ga??''}" onchange="saveResult(${p.id},'ga',this.value)" placeholder="0"><div class="dash">-</div><input class="score" type="number" min="0" inputmode="numeric" value="${r.gb??''}" onchange="saveResult(${p.id},'gb',this.value)" placeholder="0"><label>${B}</label></div><div class="winnerLine"><span class="winnerPill ${win?'ok':'warn'}">${win?('🏅 '+win):'Pendiente por goles'}</span><span class="winnerPill">Avance automático: ${win&&win!=='Empate'?win:'sin clasificado'}</span>${sourceBadge}</div></div><div class="info"><div>📅 ${p.fecha} · ${p.hora} ET</div><div>📍 ${p.estadio}</div></div><div class="actions"><button class="btn ${m?'marked':''}" onclick="toggle(${p.id})">${m?'✓ Guardado':'☆ Marcar'}</button><button class="btn clear" onclick="clearResult(${p.id})">Limpiar resultado</button></div></article>`
+    return `<article class="card" style="animation-delay:${i*35}ms"><div class="spark"></div><div class="cardTop"><div><div class="phase">${p.fase}</div><strong>Partido ${p.id}</strong></div><span class="badge">${p.grupo}</span></div><div class="teams"><div class="team"><span class="flag">${flagFor(A)}</span><div class="name">${A}</div><span class="seed">${p.a}</span></div><div class="vs">VS</div><div class="team"><span class="flag">${flagFor(B)}</span><div class="name">${B}</div><span class="seed">${p.b}</span></div></div><div class="fixtureBox"><div class="scoreRow"><label>${A}</label><input class="score" type="number" min="0" inputmode="numeric" value="${r.ga??''}" onchange="saveResult(${p.id},'ga',this.value)" placeholder="0"><div class="dash">-</div><input class="score" type="number" min="0" inputmode="numeric" value="${r.gb??''}" onchange="saveResult(${p.id},'gb',this.value)" placeholder="0"><label>${B}</label></div><div class="winnerLine"><span class="winnerPill ${win?'ok':'warn'}">${win?('🏅 '+win):'Pendiente por goles'}</span><span class="winnerPill">Avance automático: ${win&&win!=='Empate'?win:'sin clasificado'}</span>${sourceBadge}</div></div><div class="info"><div>${dateLine(p)}</div><div>${etLine(p)}</div><div>📍 ${p.estadio}</div></div><div class="actions"><button class="btn ${m?'marked':''}" onclick="toggle(${p.id})">${m?'✓ Guardado':'☆ Marcar'}</button><button class="btn clear" onclick="clearResult(${p.id})">Limpiar resultado</button></div></article>`
   }).join(''):`<div class="empty">No hay partidos con ese filtro.</div>`;
   renderPreview();
 }
@@ -294,7 +313,7 @@ q.addEventListener('input',render); renderTabs(); render(); setTimeout(()=>autoS
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+    navigator.serviceWorker.register('./service-worker.js?v=7').catch(() => {});
   });
 }
 let deferredInstallPrompt = null;

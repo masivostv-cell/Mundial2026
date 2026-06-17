@@ -1,17 +1,12 @@
-const CACHE_NAME = 'fixture-mundial-2026-v6';
+const CACHE_NAME = 'fixture-mundial-2026-v7-fechas';
 const ASSETS = [
-  './',
-  './index.html',
   './manifest.webmanifest',
-  './service-worker.js',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 
@@ -33,11 +28,21 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Evita que la app instalada siga mostrando fechas viejas.
+  if (url.pathname.endsWith('/') || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/service-worker.js')) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then(response => response)
+        .catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
       const copy = response.clone();
       caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
       return response;
-    }).catch(() => caches.match('./index.html')))
+    }))
   );
 });
