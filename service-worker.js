@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fixture-mundial-2026-v7-fechas';
+const CACHE_NAME = 'fixture-mundial-2026-v9-tabs';
 const ASSETS = [
   './manifest.webmanifest',
   './icons/icon-192.png',

@@ -27,8 +27,22 @@
     body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);min-height:100vh;background:radial-gradient(circle at 0% 0%,#00ff8848,transparent 30%),radial-gradient(circle at 100% 5%,#f7258550,transparent 25%),radial-gradient(circle at 80% 100%,#00b4d84d,transparent 30%),linear-gradient(145deg,#06120d,#0b2518 55%,#020403)}
     header{padding:18px 14px 14px;background:rgba(3,14,10,.78);border-bottom:1px solid var(--line)}
     .wrap{max-width:980px;margin:auto}.hero{display:flex;gap:13px;align-items:center}.logo{width:62px;height:62px;border-radius:22px;background:linear-gradient(140deg,var(--gold),#fff2bd 48%,var(--gold));display:grid;place-items:center;box-shadow:0 12px 28px #0008;animation:float 3s ease-in-out infinite}.logo span{font-size:33px}.hero h1{margin:0;font-size:1.28rem;line-height:1.04}.hero p{margin:5px 0 0;color:#c9ffe1;font-size:.84rem;line-height:1.35}.topCalendar{margin-top:14px;border:1px solid #ffffff24;border-radius:24px;background:linear-gradient(135deg,#ffffff14,#ffffff06);padding:12px;box-shadow:0 18px 35px #0004}.topCalendar strong{display:block;margin-bottom:4px;color:#fff2bd}.topCalendar p{margin:0 0 10px;color:var(--muted);font-size:.78rem;line-height:1.35}.calendarBtn{width:100%;border:0;border-radius:18px;padding:14px 12px;font-weight:1000;cursor:pointer;background:linear-gradient(90deg,var(--gold),#fff2b6,var(--green2));color:#111000;box-shadow:0 12px 24px #0007}.toolbar{display:grid;gap:10px;margin-top:13px}.search input{width:100%;border:0;border-radius:18px;background:#ffffff12;color:white;padding:13px 15px;outline:1px solid #ffffff20}.search input::placeholder{color:#b7cfbf}.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}.chip{border:1px solid #ffffff25;background:#ffffff12;color:white;border-radius:999px;padding:9px 13px;white-space:nowrap;font-weight:800;font-size:.82rem;cursor:pointer}.chip.active{background:linear-gradient(90deg,var(--green2),var(--blue));border-color:transparent;color:#02140d}
+.appTabs{display:flex;gap:8px;overflow-x:auto;margin-top:13px;padding:8px;border:1px solid #ffffff20;border-radius:24px;background:#ffffff0d;box-shadow:0 16px 34px #0005}.appTabBtn{flex:1 0 110px;border:1px solid #ffffff24;background:#ffffff12;color:white;border-radius:18px;padding:12px 8px;font-weight:1000;cursor:pointer;font-size:.76rem;white-space:nowrap}.appTabBtn.active{background:linear-gradient(90deg,var(--gold),#fff2b6,var(--green2));color:#07140c;border-color:transparent}.appView{display:none}.appView.active{display:block}.sectionIntro{max-width:980px;margin:0 auto 14px;border:1px solid #ffffff1f;border-radius:24px;background:#ffffff0d;padding:12px;color:#d8ffe4}.sectionIntro h2{margin:0 0 5px;color:#fff2bd;font-size:1rem}.sectionIntro p{margin:0;font-size:.78rem;line-height:1.35;color:var(--muted)}.markerTools{max-width:980px;margin:0 auto 16px}.tabHint{max-width:980px;margin:0 auto 12px;color:#c7e8d2;font-size:.76rem;line-height:1.35}
 .installBtn{width:100%;border:1px solid #ffffff24;border-radius:18px;padding:14px 12px;font-weight:1000;cursor:pointer;background:linear-gradient(90deg,var(--pink),var(--blue));color:white;box-shadow:0 12px 24px #0007;margin-top:9px}.syncBtn{width:100%;border:1px solid #ffffff24;border-radius:18px;padding:14px 12px;font-weight:1000;cursor:pointer;background:linear-gradient(90deg,var(--blue),var(--green2));color:#03140c;box-shadow:0 12px 24px #0007;margin-top:9px}.syncStatus{margin-top:9px;padding:10px;border-radius:16px;background:#ffffff10;border:1px solid #ffffff1e;color:#d8ffe4;font-size:.76rem;line-height:1.35}.installHelp{display:none;margin-top:9px;padding:10px;border-radius:16px;background:#ffffff10;border:1px solid #ffffff1e;color:#d8ffe4;font-size:.76rem;line-height:1.35}.installHelp.show{display:block}
     main{padding:18px 14px 70px}.statusBoard{max-width:980px;margin:0 auto 16px;border:1px solid #ffffff1f;border-radius:28px;background:#06150f99;padding:14px;box-shadow:0 18px 45px #0005}.statusBoard h2{font-size:1rem;margin:0 0 8px;color:#fff2bd}.miniGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.miniCard{background:#ffffff0d;border:1px solid #ffffff18;border-radius:16px;padding:9px;font-size:.78rem;color:#d8ffe4}.miniCard b{display:block;color:white;font-size:.8rem;margin-bottom:3px}.magazine{max-width:980px;margin:auto;display:grid;gap:16px}.card{position:relative;overflow:hidden;border:1px solid #ffffff18;border-radius:28px;background:linear-gradient(145deg,#123b29,#07150f 62%);box-shadow:0 18px 45px #0008;transform-origin:center;animation:pop .45s ease both}.card::before{content:"";position:absolute;inset:-80px auto auto -80px;width:190px;height:190px;background:radial-gradient(circle,var(--gold),transparent 62%);opacity:.18}.spark{position:absolute;right:-25px;top:42px;width:82px;height:82px;border-radius:24px;background:linear-gradient(135deg,var(--blue),var(--pink));opacity:.16;transform:rotate(20deg)}.cardTop{position:relative;padding:16px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.badge{background:#ffffff14;border:1px solid #ffffff24;border-radius:999px;padding:7px 10px;font-size:.72rem;font-weight:900;color:#e8ffd8}.phase{color:var(--gold);font-weight:1000;letter-spacing:.06em;font-size:.74rem;text-transform:uppercase}.teams{position:relative;padding:0 16px 8px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}.team{text-align:center;min-width:0}.flag{font-size:1.8rem;display:block;filter:drop-shadow(0 8px 8px #0008)}.name{font-weight:1000;font-size:1.03rem;overflow-wrap:anywhere}.seed{display:inline-block;margin-top:4px;color:#c7e8d2;font-size:.72rem;border:1px solid #ffffff20;border-radius:999px;padding:3px 7px;background:#ffffff0d}.vs{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--pink),var(--gold));font-weight:1000;color:#120606;box-shadow:0 10px 20px #0007}.fixtureBox{position:relative;margin:4px 16px 12px;padding:12px;border-radius:22px;background:#ffffff0e;border:1px solid #ffffff18}.scoreRow{display:grid;grid-template-columns:1fr 54px 28px 54px 1fr;gap:7px;align-items:center}.scoreRow label{font-size:.75rem;color:#d8ffe4;font-weight:800}.scoreRow label:first-child{text-align:right}.score{width:54px;border:1px solid #ffffff26;border-radius:14px;background:#ffffff12;color:white;padding:10px 5px;font-size:1.05rem;font-weight:1000;text-align:center;outline:none}.dash{text-align:center;color:var(--gold);font-weight:1000}.winnerLine{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}.winnerPill{border-radius:999px;padding:8px 10px;font-size:.74rem;font-weight:1000;white-space:nowrap;background:#ffffff12;color:#d8ffe4;border:1px solid #ffffff22}.winnerPill.ok{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300}.winnerPill.warn{background:#ffffff12;color:#fff2bd}.info{display:grid;gap:7px;padding:0 16px 14px;color:#d8ffe4;font-size:.88rem}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:0 16px 16px}.btn{border:0;border-radius:16px;padding:12px 10px;font-weight:1000;cursor:pointer;color:white;background:#ffffff16;border:1px solid #ffffff20}.btn.marked{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300}.btn.clear{background:#ffffff0f}.empty{padding:30px;text-align:center;color:#cdebd8}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:#07140f;border:1px solid #ffffff25;color:white;padding:12px 16px;border-radius:18px;box-shadow:0 18px 40px #0009;font-weight:900;z-index:30;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes float{50%{transform:translateY(-5px) rotate(-2deg)}}@media(min-width:760px){.magazine{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:1.8rem}.miniGrid{grid-template-columns:repeat(4,1fr)}}
+  
+
+/* ===== MÓDULOS PREMIUM: tablas, mi selección, pronósticos y apuestas responsables ===== */
+.premiumGrid{max-width:980px;margin:0 auto 16px;display:grid;gap:14px}
+.premiumCard{border:1px solid #ffffff1f;border-radius:28px;background:linear-gradient(145deg,#081b13,#06120d 65%);padding:14px;box-shadow:0 18px 45px #0005;overflow:hidden}
+.premiumCard h2{font-size:1rem;margin:0 0 8px;color:#fff2bd}.premiumCard p{margin:0 0 10px;color:var(--muted);font-size:.78rem;line-height:1.35}
+.controlGrid{display:grid;grid-template-columns:1fr;gap:9px}.controlGrid label{display:grid;gap:5px;color:#d8ffe4;font-size:.76rem;font-weight:900}.controlGrid select,.controlGrid input{width:100%;border:1px solid #ffffff22;border-radius:15px;background:#ffffff12;color:white;padding:11px 12px;outline:none}.controlGrid option{color:#06120d}
+.smartGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.smartBox{background:#ffffff0d;border:1px solid #ffffff18;border-radius:16px;padding:10px;font-size:.78rem;color:#d8ffe4}.smartBox b{display:block;color:white;margin-bottom:4px}.smartBox.good{border-color:#00ff884d;background:#00ff8815}.smartBox.warn2{border-color:#fff2bd66;background:#fff2bd12}.smartBox.bad{border-color:#ff6b6b66;background:#ff6b6b14}
+.tableWrap{overflow:auto;border:1px solid #ffffff18;border-radius:18px;background:#ffffff0a}.standTable{width:100%;border-collapse:collapse;min-width:660px;font-size:.76rem}.standTable th,.standTable td{padding:9px;border-bottom:1px solid #ffffff13;text-align:center}.standTable th{color:#fff2bd;background:#ffffff10;font-size:.7rem}.standTable td.teamCell{text-align:left;font-weight:1000;color:white}.posTag{display:inline-block;min-width:24px;border-radius:999px;padding:3px 6px;background:#ffffff14;color:#d8ffe4;font-weight:1000}.posTag.ok{background:#00ff8830;color:#baffd5}.posTag.mid{background:#fff2bd28;color:#fff2bd}.posTag.out{background:#ff6b6b2a;color:#ffd0d0}
+.groupTabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:8px}.groupTab{border:1px solid #ffffff25;background:#ffffff12;color:white;border-radius:999px;padding:8px 11px;white-space:nowrap;font-weight:900;font-size:.75rem;cursor:pointer}.groupTab.active{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300;border-color:transparent}
+.betAnalysis{display:grid;gap:10px}.probBars{display:grid;gap:8px}.probRow{display:grid;grid-template-columns:86px 1fr 48px;gap:8px;align-items:center;font-size:.76rem;color:#d8ffe4}.bar{height:12px;border-radius:999px;background:#ffffff12;overflow:hidden;border:1px solid #ffffff14}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green2),var(--gold));border-radius:999px}.tipList{display:grid;gap:8px}.tipCard{border:1px solid #ffffff18;background:#ffffff0d;border-radius:16px;padding:10px;font-size:.77rem;line-height:1.35;color:#d8ffe4}.tipCard b{color:white}.tipCard.value{border-color:#00ff8855;background:#00ff8814}.tipCard.avoid{border-color:#ff6b6b66;background:#ff6b6b12}.tipCard.neutral{border-color:#fff2bd55;background:#fff2bd12}.legalNote{border:1px solid #fff2bd44;background:#fff2bd10;border-radius:16px;padding:10px;color:#fff2bd!important;font-size:.74rem!important;line-height:1.35!important}.quickBtn{border:1px solid #ffffff24;border-radius:14px;padding:10px 12px;font-weight:1000;cursor:pointer;background:#ffffff12;color:white}.quickBtn.gold{background:linear-gradient(90deg,var(--gold),#fff0b3);color:#1d1300;border:0}.quickBtn.blue{background:linear-gradient(90deg,var(--blue),var(--green2));color:#03140c;border:0}.quickActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.betSummaryLine{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.betBadge{display:inline-block;border:1px solid #ffffff22;background:#ffffff10;border-radius:999px;padding:7px 9px;font-size:.7rem;font-weight:1000;color:#d8ffe4}.betBadge.value{background:#00ff8820;color:#baffd5;border-color:#00ff8855}.betBadge.risk{background:#fff2bd1a;color:#fff2bd;border-color:#fff2bd55}.spoilerCover{border:1px dashed #fff2bd66;border-radius:16px;background:#fff2bd12;color:#fff2bd;padding:12px;text-align:center;font-weight:1000;font-size:.82rem}.smallMuted{color:#c7e8d2;font-size:.72rem;line-height:1.35}.matchBetPanel{margin:0 16px 14px;border:1px solid #ffffff18;border-radius:20px;background:#ffffff0c;padding:10px}.matchBetPanel h3{margin:0 0 8px;font-size:.84rem;color:#fff2bd}.matchBetPanel .miniBetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.miniBet{background:#ffffff0d;border:1px solid #ffffff18;border-radius:14px;padding:8px;text-align:center;font-size:.72rem;color:#d8ffe4}.miniBet b{display:block;color:white;font-size:.84rem;margin-bottom:2px}.miniBet.value{border-color:#00ff8855;background:#00ff8814}
+@media(min-width:760px){.premiumGrid{grid-template-columns:1fr 1fr}.premiumCard.full{grid-column:1/-1}.controlGrid{grid-template-columns:repeat(3,1fr)}.smartGrid{grid-template-columns:repeat(4,1fr)}}
+
   </style>
 </head>
 <body>
@@ -43,23 +57,107 @@
       <p>Botón único arriba. Descarga los 104 partidos del Mundial 2026 en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar. Fechas revisadas: se muestra hora local de la sede, hora Colombia y ET.</p>
       <button class="calendarBtn" onclick="downloadAllICS()">Agregar todos los partidos al calendario</button>
       <button class="syncBtn" type="button" onclick="autoSyncPastResults()">🔄 Buscar marcadores de partidos pasados</button>
+      <button class="syncBtn" type="button" onclick="toggleSpoilerMode()" id="spoilerToggleBtn">🙈 Activar modo sin spoilers</button>
       <div id="syncStatus" class="syncStatus">La app revisa automáticamente los partidos pasados que estén sin marcador.</div>
-      <div class="syncStatus">✅ Versión fechas revisadas v7 · Canadá vs Qatar: 18 junio · Ecuador vs Curazao: 20 junio.</div>
+      <div class="syncStatus">✅ Versión v9 con pestañas · Marcadores · Probabilidades · Tabla de posiciones.</div>
       <button id="installAppBtn" class="installBtn" type="button">📲 Instalar app en mi celular</button>
       <div id="installHelp" class="installHelp">En iPhone: abre esta página en Safari, toca Compartir y elige “Agregar a pantalla de inicio”. En Android/Chrome: toca el botón Instalar o usa el menú ⋮ y “Agregar a pantalla principal”.</div>
     </section>
-    <div class="toolbar">
-      <div class="search"><input id="q" placeholder="Buscar equipo, estadio, grupo o fase..." /></div>
-      <div class="tabs" id="tabs"></div>
-    </div>
+    <nav class="appTabs" aria-label="Secciones principales">
+      <button class="appTabBtn active" id="tab-marcadores" type="button" onclick="setAppTab('marcadores')">⚽ Marcadores</button>
+      <button class="appTabBtn" id="tab-probabilidades" type="button" onclick="setAppTab('probabilidades')">🎯 Probabilidades</button>
+      <button class="appTabBtn" id="tab-tablas" type="button" onclick="setAppTab('tablas')">📊 Tabla de posiciones</button>
+    </nav>
   </div>
 </header>
 <main>
-  <section class="statusBoard">
-    <h2>🏁 Avance automático del cuadro</h2>
-    <div class="miniGrid" id="bracketPreview"></div>
+  <section id="view-marcadores" class="appView active">
+    <section class="sectionIntro">
+      <h2>⚽ Marcadores</h2>
+      <p>Aquí ves el fixture, registras goles, marcas partidos favoritos y actualizas resultados pasados.</p>
+    </section>
+
+    <section class="statusBoard">
+      <h2>🏁 Avance automático del cuadro</h2>
+      <div class="miniGrid" id="bracketPreview"></div>
+    </section>
+
+    <div class="toolbar markerTools">
+      <div class="search"><input id="q" placeholder="Buscar equipo, estadio, grupo o fase..." /></div>
+      <div class="tabs" id="tabs"></div>
+    </div>
+
+    <section class="magazine" id="list"></section>
   </section>
-  <section class="magazine" id="list"></section>
+
+  <section id="view-probabilidades" class="appView">
+    <section class="sectionIntro">
+      <h2>🎯 Probabilidades</h2>
+      <p>Analiza partidos, compara cuotas, calcula probabilidad implícita y revisa posible valor esperado. No son apuestas seguras.</p>
+    </section>
+
+    <section class="premiumGrid">
+      <article class="premiumCard">
+        <h2>⭐ Mi selección</h2>
+        <p>Elige un equipo y la app te muestra su ruta, próximos partidos y situación del grupo.</p>
+        <div class="controlGrid">
+          <label>Selección favorita
+            <select id="teamSelect" onchange="setFavoriteTeam(this.value)"></select>
+          </label>
+        </div>
+        <div id="teamRoute" class="smartGrid" style="margin-top:10px"></div>
+      </article>
+
+      <article class="premiumCard full" id="bettingBoard">
+        <h2>🎯 Pronósticos y valor de apuesta</h2>
+        <p class="legalNote">Herramienta estadística y educativa. No garantiza resultados, no es asesoría financiera y no debe usarse como “apuesta segura”. Apuesta solo si eres mayor de edad y con dinero que puedas permitirte perder.</p>
+        <div class="controlGrid">
+          <label>Partido para analizar
+            <select id="betMatchSelect" onchange="selectBetMatch(this.value)"></select>
+          </label>
+          <label>Bankroll / presupuesto
+            <input id="bankrollInput" type="number" min="0" step="1000" placeholder="Ej: 100000" onchange="saveBankroll(this.value)">
+          </label>
+          <label>Riesgo sugerido por apuesta (%)
+            <input id="riskInput" type="number" min="0.1" max="5" step="0.1" placeholder="Ej: 1" onchange="saveRiskPercent(this.value)">
+          </label>
+        </div>
+        <div class="controlGrid" style="margin-top:9px">
+          <label id="oddsALabel">Cuota equipo A
+            <input id="oddsA" type="number" min="1.01" step="0.01" placeholder="Ej: 2.10" onchange="saveOdds()">
+          </label>
+          <label>Cuota empate
+            <input id="oddsD" type="number" min="1.01" step="0.01" placeholder="Ej: 3.20" onchange="saveOdds()">
+          </label>
+          <label id="oddsBLabel">Cuota equipo B
+            <input id="oddsB" type="number" min="1.01" step="0.01" placeholder="Ej: 3.60" onchange="saveOdds()">
+          </label>
+        </div>
+        <div id="betAnalysis" class="betAnalysis" style="margin-top:12px"></div>
+      </article>
+    </section>
+  </section>
+
+  <section id="view-tablas" class="appView">
+    <section class="sectionIntro">
+      <h2>📊 Tabla de posiciones</h2>
+      <p>Revisa cada grupo y el ranking de mejores terceros. Las tablas se recalculan con los marcadores guardados.</p>
+    </section>
+
+    <section class="premiumGrid">
+      <article class="premiumCard">
+        <h2>🥉 Mejores terceros</h2>
+        <p>Ranking automático para el formato de 12 grupos. Se activa con los resultados que guardes.</p>
+        <div id="thirdRanking" class="smartGrid"></div>
+      </article>
+
+      <article class="premiumCard full">
+        <h2>📊 Tablas de posiciones</h2>
+        <div class="groupTabs" id="groupTabs"></div>
+        <div id="standingsPanel"></div>
+      </article>
+    </section>
+  </section>
 </main>
 <div class="toast" id="toast">Guardado</div>
 <script>
@@ -177,11 +275,31 @@ const PARTIDOS=[
 ];
 const $=s=>document.querySelector(s), list=$('#list'), tabs=$('#tabs'), q=$('#q');
 let filtro='Todos';
+let appTab=localStorage.getItem('mundial2026_tab_activa_v1')||'marcadores';
 let marcados=JSON.parse(localStorage.getItem('partidosMarcados2026_v2')||'[]');
 let fixture=JSON.parse(localStorage.getItem('fixtureResultados2026_v2')||'{}');
+let noSpoilers=JSON.parse(localStorage.getItem('modoSinSpoilers2026_v1')||'false');
+let favoriteTeam=localStorage.getItem('miSeleccion2026_v1')||'Colombia';
+let activeGroup=localStorage.getItem('grupoActivo2026_v1')||'A';
+let activeBetMatch=Number(localStorage.getItem('partidoPronostico2026_v1')||'24');
+let bettingOdds=JSON.parse(localStorage.getItem('cuotasPronostico2026_v1')||'{}');
+let bankroll=Number(localStorage.getItem('bankrollPronostico2026_v1')||'');
+let riskPercent=Number(localStorage.getItem('riesgoPronostico2026_v1')||'1');
 function toast(msg='Guardado'){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
 function saveMarked(){localStorage.setItem('partidosMarcados2026_v2',JSON.stringify(marcados))}
 function saveFixture(){localStorage.setItem('fixtureResultados2026_v2',JSON.stringify(fixture))}
+function setAppTab(tab){
+  appTab=tab;
+  localStorage.setItem('mundial2026_tab_activa_v1',tab);
+  ['marcadores','probabilidades','tablas'].forEach(t=>{
+    const view=$('#view-'+t);
+    const btn=$('#tab-'+t);
+    if(view)view.classList.toggle('active',t===tab);
+    if(btn)btn.classList.toggle('active',t===tab);
+  });
+  if(tab==='probabilidades'||tab==='tablas')renderExtraPanels();
+  if(tab==='marcadores')render();
+}
 function getP(id){return PARTIDOS.find(p=>p.id===Number(id))}
 function hasScore(r){return r && r.ga!=='' && r.gb!=='' && r.ga!==undefined && r.gb!==undefined && !Number.isNaN(Number(r.ga)) && !Number.isNaN(Number(r.gb))}
 function resultFromGoals(p){const r=fixture[p.id]||{}; if(!hasScore(r))return ''; const ga=Number(r.ga),gb=Number(r.gb); if(ga>gb)return teamName(p,'a'); if(gb>ga)return teamName(p,'b'); return 'Empate'}
@@ -202,6 +320,43 @@ function resolveSeed(seed){
 }
 function teamName(p,side){return resolveSeed(p[side])}
 function flagFor(name){return FLAGS[name]||(/^[GP123]/.test(name)?'🏳️':'🏆')}
+
+
+const TEAM_RATING={
+  'Argentina':94,'Francia':93,'Brasil':92,'España':90,'Inglaterra':89,'Portugal':88,'Países Bajos':87,'Alemania':86,'Bélgica':84,'Uruguay':83,'Colombia':82,'Croacia':82,'Marruecos':81,'EE. UU.':80,'México':79,'Suiza':79,'Japón':78,'Senegal':77,'Ecuador':76,'Rep. de Corea':75,'Suecia':75,'Austria':74,'Australia':73,'Irán':72,'Noruega':72,'Turquía':72,'Costa de Marfil':71,'Escocia':71,'Paraguay':70,'Qatar':69,'Arabia Saudí':68,'Egipto':68,'Ghana':68,'Túnez':67,'Sudáfrica':66,'Canadá':66,'Chequia':66,'Panamá':65,'Argelia':65,'Uzbekistán':64,'RD de Congo':63,'Irak':62,'Bosnia y Herzegovina':62,'Nueva Zelanda':61,'Jordania':59,'Cabo Verde':58,'Haití':57,'Curazao':55
+};
+function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+function pct(n){return (n*100).toFixed(1)+'%'}
+function isHostBonus(team,stadium){const e=(stadium||'').toLowerCase(); if(team==='Canadá'&&(e.includes('vancouver')||e.includes('toronto')))return 3; if(team==='México'&&(e.includes('méxico')||e.includes('mexico')||e.includes('guadalajara')||e.includes('monterrey')||e.includes('azteca')||e.includes('akron')||e.includes('bbva')))return 3; if(team==='EE. UU.'&&(e.includes('los ángeles')||e.includes('los angeles')||e.includes('seattle')||e.includes('san francisco')||e.includes('dallas')||e.includes('houston')||e.includes('kansas')||e.includes('boston')||e.includes('atlanta')||e.includes('filadelfia')||e.includes('miami')||e.includes('nueva york')||e.includes('new york')))return 3; return 0}
+function recentTeamStats(team){let pj=0,pts=0,gf=0,gc=0; PARTIDOS.filter(p=>p.fase==='Fase de grupos').forEach(p=>{const r=fixture[p.id]||{}; if(!hasScore(r))return; const A=p.a,B=p.b,ga=Number(r.ga),gb=Number(r.gb); if(A===team){pj++;gf+=ga;gc+=gb;pts+=ga>gb?3:ga===gb?1:0} if(B===team){pj++;gf+=gb;gc+=ga;pts+=gb>ga?3:gb===ga?1:0}}); return {pj,pts,gf,gc,dg:gf-gc,ppg:pj?pts/pj:0,gfpg:pj?gf/pj:0,gcpg:pj?gc/pj:0}}
+function teamPower(team,p){if(!realTeamSeed(team))return 70; const base=TEAM_RATING[team]||68; const st=recentTeamStats(team); const form=st.pj?clamp((st.ppg-1.2)*4 + st.dg*0.7,-5,7):0; return base+form+isHostBonus(team,p.estadio)}
+function estimateProbabilities(p){const A=teamName(p,'a'),B=teamName(p,'b'); const pa=teamPower(A,p),pb=teamPower(B,p),diff=pa-pb,gap=Math.abs(diff); const draw=clamp(0.30-gap*0.004,0.17,0.31); const winA=1/(1+Math.exp(-diff/13)); const rem=1-draw; const a=rem*winA,b=rem*(1-winA); const expA=clamp(1.35+diff/40,0.55,2.6), expB=clamp(1.35-diff/40,0.55,2.6); const total=expA+expB; const over15=clamp(0.52+(total-2.2)*0.12,0.42,0.78); const over25=clamp(0.36+(total-2.2)*0.12,0.22,0.64); const btts=clamp(0.45-gap*0.004+(total-2.2)*0.08,0.28,0.62); return {A,B,a,b,draw,expA,expB,total,over15,over25,btts,diff,gap}}
+function impliedFromOdds(o){const n=Number(o); return n>1?1/n:0}
+function cleanMarketProbs(oa,od,ob){const ia=impliedFromOdds(oa),id=impliedFromOdds(od),ib=impliedFromOdds(ob),sum=ia+id+ib; if(!sum)return null; return {a:ia/sum,draw:id/sum,b:ib/sum,margin:sum-1}}
+function ev(prob,odd){const o=Number(odd); return o>1?prob*o-1:null}
+function riskLabel(prob,gap){if(prob>=0.55 && gap>=8)return 'Riesgo medio-bajo'; if(prob>=0.47)return 'Riesgo medio'; return 'Riesgo alto'}
+function getBestPick(p){const pr=estimateProbabilities(p); const rows=[{key:'a',label:`Gana ${pr.A}`,prob:pr.a},{key:'draw',label:'Empate',prob:pr.draw},{key:'b',label:`Gana ${pr.B}`,prob:pr.b}].sort((x,y)=>y.prob-x.prob); return {...rows[0],pr}}
+function nextMatchForTeam(team){return sortedPartidos().filter(p=>teamName(p,'a')===team||teamName(p,'b')===team).find(p=>!matchAlreadyPassed(p)||!hasScore(fixture[p.id]||{})) || sortedPartidos().filter(p=>teamName(p,'a')===team||teamName(p,'b')===team).at(-1)}
+function groupForTeam(team){return Object.entries(GROUP_TEAMS).find(([k,arr])=>arr.includes(team))?.[0]||''}
+function setFavoriteTeam(team){favoriteTeam=team; localStorage.setItem('miSeleccion2026_v1',team); renderExtraPanels(); toast('Selección actualizada')}
+function setActiveGroup(g){activeGroup=g; localStorage.setItem('grupoActivo2026_v1',g); renderExtraPanels()}
+function selectBetMatch(id){activeBetMatch=Number(id); localStorage.setItem('partidoPronostico2026_v1',String(activeBetMatch)); renderBettingAnalysis()}
+function saveBankroll(v){bankroll=Number(v)||0; localStorage.setItem('bankrollPronostico2026_v1',String(bankroll)); renderBettingAnalysis()}
+function saveRiskPercent(v){riskPercent=clamp(Number(v)||1,0.1,5); localStorage.setItem('riesgoPronostico2026_v1',String(riskPercent)); renderBettingAnalysis()}
+function saveOdds(){const id=activeBetMatch; bettingOdds[id]={a:$('#oddsA')?.value||'',draw:$('#oddsD')?.value||'',b:$('#oddsB')?.value||''}; localStorage.setItem('cuotasPronostico2026_v1',JSON.stringify(bettingOdds)); renderBettingAnalysis(false)}
+function toggleSpoilerMode(){noSpoilers=!noSpoilers; localStorage.setItem('modoSinSpoilers2026_v1',JSON.stringify(noSpoilers)); render(); renderExtraPanels(); toast(noSpoilers?'Modo sin spoilers activo':'Modo sin spoilers desactivado')}
+function renderSpoilerButton(){const btn=$('#spoilerToggleBtn'); if(btn)btn.textContent=noSpoilers?'🙈 Desactivar modo sin spoilers':'🙈 Activar modo sin spoilers'}
+function renderTeamSelect(){const el=$('#teamSelect'); if(!el)return; const teams=Object.values(GROUP_TEAMS).flat(); el.innerHTML=teams.map(t=>`<option value="${t}" ${t===favoriteTeam?'selected':''}>${flagFor(t)} ${t}</option>`).join('')}
+function renderMyTeam(){const el=$('#teamRoute'); if(!el)return; const team=favoriteTeam, g=groupForTeam(team), table=g?groupTable(g):[], row=table.find(x=>x.team===team), pos=table.findIndex(x=>x.team===team)+1, next=nextMatchForTeam(team); const status=pos?pos<=2?'Clasificación directa':pos===3?'Zona de mejores terceros':'Debe mejorar posiciones':'Pendiente'; const cls=pos&&pos<=2?'good':pos===3?'warn2':'bad'; el.innerHTML=`<div class="smartBox ${cls}"><b>${flagFor(team)} ${team}</b>Grupo ${g||'-'} · ${status}</div><div class="smartBox"><b>Posición actual</b>${pos||'-'}° · ${row?row.pts:0} pts · DG ${row?row.dg:0}</div><div class="smartBox"><b>Próximo partido</b>${next?`P${next.id}: ${teamName(next,'a')} vs ${teamName(next,'b')}`:'Sin partido'}</div><div class="smartBox"><b>Horario Colombia</b>${next?formatTZ(kickoffDate(next),'America/Bogota'):'-'}</div>`}
+function renderGroupTabs(){const el=$('#groupTabs'); if(!el)return; el.innerHTML=Object.keys(GROUP_TEAMS).map(g=>`<button class="groupTab ${g===activeGroup?'active':''}" onclick="setActiveGroup('${g}')">Grupo ${g}</button>`).join('')}
+function renderStandings(){const el=$('#standingsPanel'); if(!el)return; const rows=groupTable(activeGroup); el.innerHTML=`<div class="tableWrap"><table class="standTable"><thead><tr><th>Pos</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead><tbody>${rows.map((t,i)=>{let pg=0,pe=0,pp=0; groupMatches(activeGroup).forEach(p=>{const r=fixture[p.id]||{}; if(!hasScore(r))return; const ga=Number(r.ga),gb=Number(r.gb); if(p.a===t.team){if(ga>gb)pg++; else if(ga===gb)pe++; else pp++;} if(p.b===t.team){if(gb>ga)pg++; else if(ga===gb)pe++; else pp++;}}); const c=i<2?'ok':i===2?'mid':'out'; return `<tr><td><span class="posTag ${c}">${i+1}</span></td><td class="teamCell">${flagFor(t.team)} ${t.team}</td><td>${t.pj}</td><td>${pg}</td><td>${pe}</td><td>${pp}</td><td>${t.gf}</td><td>${t.gc}</td><td>${t.dg}</td><td><b>${t.pts}</b></td></tr>`}).join('')}</tbody></table></div><p class="smallMuted" style="margin-top:8px">Verde: clasifica directo. Amarillo: posible mejor tercero. Rojo: fuera por ahora. La tabla se recalcula con los marcadores guardados.</p>`}
+function renderThirdRanking(){const el=$('#thirdRanking'); if(!el)return; const full=thirdPlaceRanking(); const current=Object.keys(GROUP_TEAMS).map(g=>{const t=groupTable(g)[2]; return t?{...t,letter:g,complete:groupComplete(g)}:null}).filter(Boolean).sort((x,y)=>y.pts-x.pts||y.dg-x.dg||y.gf-x.gf||x.team.localeCompare(y.team)); const data=full.length?full:current; el.innerHTML=data.slice(0,8).map((t,i)=>`<div class="smartBox ${i<8?'warn2':''}"><b>${i+1}. ${flagFor(t.team)} ${t.team}</b>Grupo ${t.letter} · ${t.pts} pts · DG ${t.dg}${t.complete?'':' · parcial'}</div>`).join('') || '<div class="smartBox"><b>Pendiente</b>Guarda marcadores para calcular mejores terceros.</div>'}
+function renderBetMatchSelect(){const el=$('#betMatchSelect'); if(!el)return; const upcoming=sortedPartidos().filter(p=>realTeamSeed(teamName(p,'a'))&&realTeamSeed(teamName(p,'b'))); if(!upcoming.find(p=>p.id===activeBetMatch) && upcoming[0])activeBetMatch=upcoming[0].id; el.innerHTML=upcoming.map(p=>`<option value="${p.id}" ${p.id===activeBetMatch?'selected':''}>P${p.id} · ${teamName(p,'a')} vs ${teamName(p,'b')} · ${formatTZ(kickoffDate(p),'America/Bogota')}</option>`).join('')}
+function renderBettingAnalysis(loadInputs=true){const el=$('#betAnalysis'); if(!el)return; const p=getP(activeBetMatch)||sortedPartidos()[0]; if(!p)return; const pr=estimateProbabilities(p), pick=getBestPick(p), odds=bettingOdds[p.id]||{}; if(loadInputs){if($('#oddsA'))$('#oddsA').value=odds.a||''; if($('#oddsD'))$('#oddsD').value=odds.draw||''; if($('#oddsB'))$('#oddsB').value=odds.b||''; if($('#bankrollInput'))$('#bankrollInput').value=bankroll||''; if($('#riskInput'))$('#riskInput').value=riskPercent||1;} if($('#oddsALabel'))$('#oddsALabel').firstChild.textContent='Cuota '+pr.A; if($('#oddsBLabel'))$('#oddsBLabel').firstChild.textContent='Cuota '+pr.B; const market=cleanMarketProbs(odds.a,odds.draw,odds.b); const evs=[{k:'a',label:`Gana ${pr.A}`,prob:pr.a,odd:odds.a},{k:'draw',label:'Empate',prob:pr.draw,odd:odds.draw},{k:'b',label:`Gana ${pr.B}`,prob:pr.b,odd:odds.b}].map(x=>({...x,ev:ev(x.prob,x.odd)})); const values=evs.filter(x=>x.ev!==null).sort((x,y)=>y.ev-x.ev); const bestValue=values[0]; const stake=bankroll&&riskPercent?Math.round(bankroll*(riskPercent/100)):0; const overTip=pr.over15>=0.60?'Más de 1.5 goles':(pr.over25>=0.48?'Más de 2.5 goles':'Total de goles con cautela'); const bttsTip=pr.btts>=0.52?'Ambos equipos marcan: opción interesante':'Ambos marcan: riesgo alto'; const valueHtml=bestValue?`<div class="tipCard ${bestValue.ev>0.05?'value':bestValue.ev<0?'avoid':'neutral'}"><b>${bestValue.ev>0.05?'✅ Posible valor detectado':'⚠️ Valor bajo o negativo'}</b><br>${bestValue.label} con cuota ${bestValue.odd}. EV teórico: ${(bestValue.ev*100).toFixed(1)}%. ${bestValue.ev>0.05?'La probabilidad del modelo supera lo que sugiere esa cuota.':'No parece haber ventaja clara con las cuotas ingresadas.'}</div>`:`<div class="tipCard neutral"><b>Ingresa cuotas para detectar valor</b><br>La app convierte cuotas a probabilidad implícita, limpia el margen y calcula valor esperado.</div>`; el.innerHTML=`<div class="smartGrid"><div class="smartBox good"><b>Lectura principal</b>${pick.label} · ${pct(pick.prob)}</div><div class="smartBox warn2"><b>Riesgo</b>${riskLabel(pick.prob,pr.gap)}</div><div class="smartBox"><b>Goles esperados</b>${pr.A}: ${pr.expA.toFixed(2)} · ${pr.B}: ${pr.expB.toFixed(2)}</div><div class="smartBox"><b>Stake responsable</b>${stake?stake.toLocaleString('es-CO'):'Define presupuesto'}${stake?' aprox.':''}</div></div><div class="probBars"><div class="probRow"><span>${pr.A}</span><div class="bar"><span style="width:${pr.a*100}%"></span></div><b>${pct(pr.a)}</b></div><div class="probRow"><span>Empate</span><div class="bar"><span style="width:${pr.draw*100}%"></span></div><b>${pct(pr.draw)}</b></div><div class="probRow"><span>${pr.B}</span><div class="bar"><span style="width:${pr.b*100}%"></span></div><b>${pct(pr.b)}</b></div></div>${market?`<div class="smartGrid"><div class="smartBox"><b>Mercado ${pr.A}</b>${pct(market.a)}</div><div class="smartBox"><b>Mercado empate</b>${pct(market.draw)}</div><div class="smartBox"><b>Mercado ${pr.B}</b>${pct(market.b)}</div><div class="smartBox"><b>Margen casa</b>${(market.margin*100).toFixed(1)}%</div></div>`:''}<div class="tipList">${valueHtml}<div class="tipCard"><b>Tip de goles</b><br>${overTip}. Prob. Más de 1.5: ${pct(pr.over15)} · Más de 2.5: ${pct(pr.over25)}.</div><div class="tipCard"><b>Tip ambos marcan</b><br>${bttsTip}. Probabilidad estimada: ${pct(pr.btts)}.</div><div class="tipCard avoid"><b>Regla de protección</b><br>Evitar apuestas si no hay cuota con EV positivo, si el riesgo es alto o si el presupuesto no está definido.</div></div><div class="quickActions"><button class="quickBtn gold" onclick="scrollToMatch(${p.id})">Ver partido</button><button class="quickBtn blue" onclick="clearOdds(${p.id})">Limpiar cuotas</button></div>`}
+function clearOdds(id){delete bettingOdds[id]; localStorage.setItem('cuotasPronostico2026_v1',JSON.stringify(bettingOdds)); renderBettingAnalysis(); toast('Cuotas limpiadas')}
+function scrollToMatch(id){const el=document.getElementById('match-'+id); if(el)el.scrollIntoView({behavior:'smooth',block:'center'})}
+function renderExtraPanels(){renderSpoilerButton(); renderTeamSelect(); renderMyTeam(); renderGroupTabs(); renderStandings(); renderThirdRanking(); renderBetMatchSelect(); renderBettingAnalysis()}
+function miniBetHtml(p){const pr=estimateProbabilities(p), pick=getBestPick(p); const odds=bettingOdds[p.id]||{}; const evs=[ev(pr.a,odds.a),ev(pr.draw,odds.draw),ev(pr.b,odds.b)].filter(v=>v!==null); const hasVal=evs.some(v=>v>0.05); return `<div class="matchBetPanel"><h3>🎯 Pronóstico rápido</h3><div class="miniBetGrid"><div class="miniBet ${pick.key==='a'?'value':''}"><b>${pct(pr.a)}</b>${pr.A}</div><div class="miniBet ${pick.key==='draw'?'value':''}"><b>${pct(pr.draw)}</b>Empate</div><div class="miniBet ${pick.key==='b'?'value':''}"><b>${pct(pr.b)}</b>${pr.B}</div></div><div class="betSummaryLine"><span class="betBadge risk">${riskLabel(pick.prob,pr.gap)}</span><span class="betBadge ${hasVal?'value':''}">${hasVal?'Valor detectado':'Sin valor cargado'}</span><button class="quickBtn" onclick="activeBetMatch=${p.id};localStorage.setItem('partidoPronostico2026_v1','${p.id}');renderExtraPanels();document.getElementById('bettingBoard').scrollIntoView({behavior:'smooth'});">Analizar cuotas</button></div></div>`}
 
 const AUTO_RESULT_SOURCE='https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
 const TEAM_ALIASES={
@@ -275,15 +430,15 @@ async function autoSyncPastResults(opts={}){
     const events=readCompletedEvents(data);
     let updated=0;
     pending.forEach(p=>{const found=findAutoScore(p,events); if(found){fixture[p.id]={...(fixture[p.id]||{}),ga:String(found.ga),gb:String(found.gb),auto:true,source:found.source,syncedAt:new Date().toISOString()}; updated++;}});
-    if(updated){saveFixture(); render(); updateSyncStatus(`Se actualizaron automáticamente ${updated} marcador(es). Fuente: ESPN scoreboard.`); if(!silent)toast(`Actualizados ${updated} marcador(es)`)}
+    if(updated){saveFixture(); render(); renderExtraPanels(); updateSyncStatus(`Se actualizaron automáticamente ${updated} marcador(es). Fuente: ESPN scoreboard.`); if(!silent)toast(`Actualizados ${updated} marcador(es)`)}
     else{updateSyncStatus('No se encontraron marcadores cerrados para esos partidos. Revisa que el partido ya haya finalizado.'); if(!silent)toast('No se encontraron resultados')}
   }catch(err){
     updateSyncStatus('No se pudo consultar la fuente automática. Verifica internet o intenta más tarde.');
     if(!silent)toast('No se pudo actualizar automáticamente');
   }
 }
-function saveResult(id,field,value){fixture[id]={...(fixture[id]||{ga:'',gb:''}),[field]:value,auto:false,source:'Manual'}; saveFixture(); render(); toast('Resultado guardado y cruces actualizados')}
-function clearResult(id){delete fixture[id]; saveFixture(); render(); toast('Resultado borrado')}
+function saveResult(id,field,value){fixture[id]={...(fixture[id]||{ga:'',gb:''}),[field]:value,auto:false,source:'Manual'}; saveFixture(); render(); renderExtraPanels(); toast('Resultado guardado y cruces actualizados')}
+function clearResult(id){delete fixture[id]; saveFixture(); render(); renderExtraPanels(); toast('Resultado borrado')}
 function toggle(id){marcados=marcados.includes(id)?marcados.filter(x=>x!==id):[...marcados,id]; saveMarked(); renderTabs(); render(); toast(marcados.includes(id)?'Partido marcado':'Partido desmarcado')}
 function renderTabs(){let cats=['Todos','Marcados','Fase de grupos','Eliminación','Final']; tabs.innerHTML=cats.map(c=>`<button class="chip ${c===filtro?'active':''}" onclick="filtro='${c}';renderTabs();render()">${c}</button>`).join('')}
 function pad2(n){return String(n).padStart(2,'0')}
@@ -303,17 +458,21 @@ function render(){
   list.innerHTML=data.length?data.map((p,i)=>{
     let m=marcados.includes(p.id), r=fixture[p.id]||{ga:'',gb:''}, A=teamName(p,'a'), B=teamName(p,'b'), win=resultFromGoals(p);
     let sourceBadge=r.auto?`<span class="winnerPill">🔄 Marcador automático</span>`:(hasScore(r)?`<span class="winnerPill">✍️ Marcador manual</span>`:'');
-    return `<article class="card" style="animation-delay:${i*35}ms"><div class="spark"></div><div class="cardTop"><div><div class="phase">${p.fase}</div><strong>Partido ${p.id}</strong></div><span class="badge">${p.grupo}</span></div><div class="teams"><div class="team"><span class="flag">${flagFor(A)}</span><div class="name">${A}</div><span class="seed">${p.a}</span></div><div class="vs">VS</div><div class="team"><span class="flag">${flagFor(B)}</span><div class="name">${B}</div><span class="seed">${p.b}</span></div></div><div class="fixtureBox"><div class="scoreRow"><label>${A}</label><input class="score" type="number" min="0" inputmode="numeric" value="${r.ga??''}" onchange="saveResult(${p.id},'ga',this.value)" placeholder="0"><div class="dash">-</div><input class="score" type="number" min="0" inputmode="numeric" value="${r.gb??''}" onchange="saveResult(${p.id},'gb',this.value)" placeholder="0"><label>${B}</label></div><div class="winnerLine"><span class="winnerPill ${win?'ok':'warn'}">${win?('🏅 '+win):'Pendiente por goles'}</span><span class="winnerPill">Avance automático: ${win&&win!=='Empate'?win:'sin clasificado'}</span>${sourceBadge}</div></div><div class="info"><div>${dateLine(p)}</div><div>${etLine(p)}</div><div>📍 ${p.estadio}</div></div><div class="actions"><button class="btn ${m?'marked':''}" onclick="toggle(${p.id})">${m?'✓ Guardado':'☆ Marcar'}</button><button class="btn clear" onclick="clearResult(${p.id})">Limpiar resultado</button></div></article>`
+    const hideScore=noSpoilers&&hasScore(r);
+    const scoreHtml=hideScore?`<div class="spoilerCover">🙈 Resultado oculto por modo sin spoilers</div>`:`<div class="scoreRow"><label>${A}</label><input class="score" type="number" min="0" inputmode="numeric" value="${r.ga??''}" onchange="saveResult(${p.id},'ga',this.value)" placeholder="0"><div class="dash">-</div><input class="score" type="number" min="0" inputmode="numeric" value="${r.gb??''}" onchange="saveResult(${p.id},'gb',this.value)" placeholder="0"><label>${B}</label></div>`;
+    const winnerHtml=hideScore?`<div class="winnerLine"><span class="winnerPill warn">Resultado oculto</span></div>`:`<div class="winnerLine"><span class="winnerPill ${win?'ok':'warn'}">${win?('🏅 '+win):'Pendiente por goles'}</span><span class="winnerPill">Avance automático: ${win&&win!=='Empate'?win:'sin clasificado'}</span>${sourceBadge}</div>`;
+    const betHtml=realTeamSeed(A)&&realTeamSeed(B)?miniBetHtml(p):'';
+    return `<article class="card" id="match-${p.id}" style="animation-delay:${i*35}ms"><div class="spark"></div><div class="cardTop"><div><div class="phase">${p.fase}</div><strong>Partido ${p.id}</strong></div><span class="badge">${p.grupo}</span></div><div class="teams"><div class="team"><span class="flag">${flagFor(A)}</span><div class="name">${A}</div><span class="seed">${p.a}</span></div><div class="vs">VS</div><div class="team"><span class="flag">${flagFor(B)}</span><div class="name">${B}</div><span class="seed">${p.b}</span></div></div><div class=\"fixtureBox\">${scoreHtml}${winnerHtml}</div><div class="info"><div>${dateLine(p)}</div><div>${etLine(p)}</div><div>📍 ${p.estadio}</div></div>${betHtml}<div class="actions"><button class="btn ${m?'marked':''}" onclick="toggle(${p.id})">${m?'✓ Guardado':'☆ Marcar'}</button><button class="btn clear" onclick="clearResult(${p.id})">Limpiar resultado</button></div></article>`
   }).join(''):`<div class="empty">No hay partidos con ese filtro.</div>`;
   renderPreview();
 }
-q.addEventListener('input',render); renderTabs(); render(); setTimeout(()=>autoSyncPastResults({silent:true}),900);
+q.addEventListener('input',render); renderTabs(); render(); renderExtraPanels(); setAppTab(appTab); setTimeout(()=>autoSyncPastResults({silent:true}),900);
 </script>
 
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js?v=7').catch(() => {});
+    navigator.serviceWorker.register('./service-worker.js?v=9').catch(() => {});
   });
 }
 let deferredInstallPrompt = null;
