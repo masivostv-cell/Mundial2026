@@ -40,7 +40,7 @@
     </div>
     <section class="topCalendar">
       <strong>📅 Calendario general</strong>
-      <p>Botón único arriba. Descarga todos los partidos cargados en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar.</p>
+      <p>Botón único arriba. Descarga los 104 partidos del Mundial 2026 en archivo .ics compatible con Apple Calendar, iPhone y Google Calendar. Horario base: ET.</p>
       <button class="calendarBtn" onclick="downloadAllICS()">Agregar todos los partidos al calendario</button>
       <button class="syncBtn" type="button" onclick="autoSyncPastResults()">🔄 Buscar marcadores de partidos pasados</button>
       <div id="syncStatus" class="syncStatus">La app revisa automáticamente los partidos pasados que estén sin marcador.</div>
@@ -69,58 +69,110 @@ const GROUP_TEAMS={
  A:['México','Sudáfrica','Rep. de Corea','Chequia'], B:['Canadá','Qatar','Suiza','Bosnia y Herzegovina'], C:['Brasil','Marruecos','Escocia','Haití'], D:['EE. UU.','Paraguay','Australia','Turquía'], E:['Alemania','Ecuador','Costa de Marfil','Curazao'], F:['Países Bajos','Japón','Túnez','Suecia'], G:['Bélgica','Irán','Egipto','Nueva Zelanda'], H:['España','Uruguay','Arabia Saudí','Cabo Verde'], I:['Francia','Senegal','Noruega','Irak'], J:['Argentina','Argelia','Austria','Jordania'], K:['Portugal','Colombia','Uzbekistán','RD de Congo'], L:['Inglaterra','Croacia','Ghana','Panamá']
 };
 const PARTIDOS=[
-{id:1,grupo:'Grupo A',fase:'Fase de grupos',a:'México',b:'Sudáfrica',fecha:'2026-06-11',hora:'15:00',estadio:'Estadio Ciudad de México'},
-{id:2,grupo:'Grupo A',fase:'Fase de grupos',a:'Rep. de Corea',b:'Chequia',fecha:'2026-06-11',hora:'22:00',estadio:'Estadio Guadalajara'},
-{id:3,grupo:'Grupo B',fase:'Fase de grupos',a:'Canadá',b:'Qatar',fecha:'2026-06-12',hora:'15:00',estadio:'Estadio Toronto'},
-{id:4,grupo:'Grupo C',fase:'Fase de grupos',a:'Brasil',b:'Marruecos',fecha:'2026-06-13',hora:'18:00',estadio:'Estadio Nueva York / New Jersey'},
-{id:5,grupo:'Grupo C',fase:'Fase de grupos',a:'Haití',b:'Escocia',fecha:'2026-06-13',hora:'21:00',estadio:'Estadio Gillette'},
-{id:6,grupo:'Grupo D',fase:'Fase de grupos',a:'EE. UU.',b:'Paraguay',fecha:'2026-06-12',hora:'21:00',estadio:'Estadio Los Ángeles'},
-{id:7,grupo:'Grupo D',fase:'Fase de grupos',a:'Australia',b:'Turquía',fecha:'2026-06-13',hora:'00:00',estadio:'Estadio BC Place Vancouver'},
-{id:8,grupo:'Grupo E',fase:'Fase de grupos',a:'Alemania',b:'Ecuador',fecha:'2026-06-14',hora:'16:00',estadio:'Estadio Dallas'},
-{id:9,grupo:'Grupo F',fase:'Fase de grupos',a:'Países Bajos',b:'Japón',fecha:'2026-06-14',hora:'22:00',estadio:'Estadio Monterrey'},
-{id:10,grupo:'Grupo G',fase:'Fase de grupos',a:'Bélgica',b:'Irán',fecha:'2026-06-15',hora:'15:00',estadio:'Estadio Seattle'},
-{id:11,grupo:'Grupo H',fase:'Fase de grupos',a:'España',b:'Uruguay',fecha:'2026-06-15',hora:'12:00',estadio:'Estadio Atlanta'},
-{id:12,grupo:'Grupo I',fase:'Fase de grupos',a:'Francia',b:'Senegal',fecha:'2026-06-16',hora:'15:00',estadio:'Estadio Nueva York / New Jersey'},
-{id:13,grupo:'Grupo J',fase:'Fase de grupos',a:'Argentina',b:'Argelia',fecha:'2026-06-16',hora:'21:00',estadio:'Estadio Kansas City'},
-{id:14,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'RD de Congo',fecha:'2026-06-17',hora:'13:00',estadio:'Estadio Houston'},
-{id:15,grupo:'Grupo K',fase:'Fase de grupos',a:'Uzbekistán',b:'Colombia',fecha:'2026-06-17',hora:'19:00',estadio:'Estadio Toronto'},
-{id:16,grupo:'Grupo L',fase:'Fase de grupos',a:'Inglaterra',b:'Croacia',fecha:'2026-06-17',hora:'16:00',estadio:'Estadio Dallas'},
-{id:17,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'Uzbekistán',fecha:'2026-06-23',hora:'16:00',estadio:'Estadio Boston'},
-{id:18,grupo:'Grupo K',fase:'Fase de grupos',a:'RD de Congo',b:'Colombia',fecha:'2026-06-23',hora:'19:00',estadio:'Estadio Toronto'},
-{id:19,grupo:'Grupo K',fase:'Fase de grupos',a:'RD de Congo',b:'Uzbekistán',fecha:'2026-06-27',hora:'17:00',estadio:'Estadio Filadelfia'},
-{id:20,grupo:'Grupo K',fase:'Fase de grupos',a:'Colombia',b:'Portugal',fecha:'2026-06-27',hora:'17:00',estadio:'Estadio Nueva York / New Jersey'},
-{id:73,grupo:'Eliminación',fase:'Dieciseisavos',a:'2A',b:'2B',fecha:'2026-06-28',hora:'15:00',estadio:'Por confirmar'},
-{id:74,grupo:'Eliminación',fase:'Dieciseisavos',a:'1E',b:'3 A/B/C/D/F',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
-{id:75,grupo:'Eliminación',fase:'Dieciseisavos',a:'1F',b:'2C',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
-{id:76,grupo:'Eliminación',fase:'Dieciseisavos',a:'1C',b:'2F',fecha:'2026-06-29',hora:'15:00',estadio:'Por confirmar'},
-{id:77,grupo:'Eliminación',fase:'Dieciseisavos',a:'1I',b:'3 C/D/F/G/H',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
-{id:78,grupo:'Eliminación',fase:'Dieciseisavos',a:'2E',b:'2I',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
-{id:79,grupo:'Eliminación',fase:'Dieciseisavos',a:'1A',b:'3 C/E/F/H/I',fecha:'2026-06-30',hora:'15:00',estadio:'Por confirmar'},
-{id:80,grupo:'Eliminación',fase:'Dieciseisavos',a:'1L',b:'3 E/H/I/J/K',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
-{id:81,grupo:'Eliminación',fase:'Dieciseisavos',a:'1D',b:'3 B/E/F/I/J',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
-{id:82,grupo:'Eliminación',fase:'Dieciseisavos',a:'1G',b:'3 A/E/H/I/J',fecha:'2026-07-01',hora:'15:00',estadio:'Por confirmar'},
-{id:83,grupo:'Eliminación',fase:'Dieciseisavos',a:'2K',b:'2L',fecha:'2026-07-02',hora:'15:00',estadio:'Por confirmar'},
-{id:84,grupo:'Eliminación',fase:'Dieciseisavos',a:'1H',b:'2J',fecha:'2026-07-02',hora:'15:00',estadio:'Por confirmar'},
-{id:85,grupo:'Eliminación',fase:'Dieciseisavos',a:'1B',b:'3 E/F/G/I/J',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
-{id:86,grupo:'Eliminación',fase:'Dieciseisavos',a:'1J',b:'2H',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
-{id:87,grupo:'Eliminación',fase:'Dieciseisavos',a:'1K',b:'3 D/E/I/J/L',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
-{id:88,grupo:'Eliminación',fase:'Dieciseisavos',a:'2D',b:'2G',fecha:'2026-07-03',hora:'15:00',estadio:'Por confirmar'},
-{id:89,grupo:'Eliminación',fase:'Octavos de final',a:'G74',b:'G73',fecha:'2026-07-04',hora:'15:00',estadio:'Por confirmar'},
-{id:90,grupo:'Eliminación',fase:'Octavos de final',a:'G77',b:'G75',fecha:'2026-07-04',hora:'15:00',estadio:'Por confirmar'},
-{id:91,grupo:'Eliminación',fase:'Octavos de final',a:'G76',b:'G78',fecha:'2026-07-05',hora:'15:00',estadio:'Por confirmar'},
-{id:92,grupo:'Eliminación',fase:'Octavos de final',a:'G79',b:'G80',fecha:'2026-07-05',hora:'15:00',estadio:'Por confirmar'},
-{id:93,grupo:'Eliminación',fase:'Octavos de final',a:'G83',b:'G84',fecha:'2026-07-06',hora:'15:00',estadio:'Por confirmar'},
-{id:94,grupo:'Eliminación',fase:'Octavos de final',a:'G81',b:'G82',fecha:'2026-07-06',hora:'15:00',estadio:'Por confirmar'},
-{id:95,grupo:'Eliminación',fase:'Octavos de final',a:'G86',b:'G88',fecha:'2026-07-07',hora:'15:00',estadio:'Por confirmar'},
-{id:96,grupo:'Eliminación',fase:'Octavos de final',a:'G85',b:'G87',fecha:'2026-07-07',hora:'15:00',estadio:'Por confirmar'},
-{id:97,grupo:'Eliminación',fase:'Cuartos de final',a:'G89',b:'G90',fecha:'2026-07-09',hora:'15:00',estadio:'Por confirmar'},
-{id:98,grupo:'Eliminación',fase:'Cuartos de final',a:'G93',b:'G94',fecha:'2026-07-10',hora:'15:00',estadio:'Por confirmar'},
-{id:99,grupo:'Eliminación',fase:'Cuartos de final',a:'G91',b:'G92',fecha:'2026-07-11',hora:'15:00',estadio:'Por confirmar'},
-{id:100,grupo:'Eliminación',fase:'Cuartos de final',a:'G95',b:'G96',fecha:'2026-07-11',hora:'15:00',estadio:'Por confirmar'},
-{id:101,grupo:'Eliminación',fase:'Semifinal',a:'G97',b:'G98',fecha:'2026-07-14',hora:'15:00',estadio:'Por confirmar'},
-{id:102,grupo:'Eliminación',fase:'Semifinal',a:'G99',b:'G100',fecha:'2026-07-15',hora:'15:00',estadio:'Por confirmar'},
-{id:103,grupo:'Eliminación',fase:'3er y 4to puesto',a:'P101',b:'P102',fecha:'2026-07-18',hora:'15:00',estadio:'Por confirmar'},
-{id:104,grupo:'Final',fase:'Final',a:'G101',b:'G102',fecha:'2026-07-19',hora:'15:00',estadio:'Por confirmar'}
+{id:1,grupo:'Grupo A',fase:'Fase de grupos',a:'México',b:'Sudáfrica',fecha:'2026-06-11',hora:'15:00',estadio:'Estadio Azteca, Ciudad de México'},
+{id:2,grupo:'Grupo A',fase:'Fase de grupos',a:'Rep. de Corea',b:'Chequia',fecha:'2026-06-11',hora:'22:00',estadio:'Estadio Akron, Guadalajara'},
+{id:3,grupo:'Grupo B',fase:'Fase de grupos',a:'Canadá',b:'Bosnia y Herzegovina',fecha:'2026-06-12',hora:'15:00',estadio:'BMO Field, Toronto'},
+{id:4,grupo:'Grupo D',fase:'Fase de grupos',a:'EE. UU.',b:'Paraguay',fecha:'2026-06-12',hora:'21:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:5,grupo:'Grupo C',fase:'Fase de grupos',a:'Haití',b:'Escocia',fecha:'2026-06-13',hora:'21:00',estadio:'Gillette Stadium, Boston'},
+{id:6,grupo:'Grupo D',fase:'Fase de grupos',a:'Australia',b:'Turquía',fecha:'2026-06-14',hora:'00:00',estadio:'BC Place, Vancouver'},
+{id:7,grupo:'Grupo C',fase:'Fase de grupos',a:'Brasil',b:'Marruecos',fecha:'2026-06-13',hora:'18:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:8,grupo:'Grupo B',fase:'Fase de grupos',a:'Qatar',b:'Suiza',fecha:'2026-06-13',hora:'15:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:9,grupo:'Grupo E',fase:'Fase de grupos',a:'Costa de Marfil',b:'Ecuador',fecha:'2026-06-14',hora:'19:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:10,grupo:'Grupo E',fase:'Fase de grupos',a:'Alemania',b:'Curazao',fecha:'2026-06-14',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:11,grupo:'Grupo F',fase:'Fase de grupos',a:'Países Bajos',b:'Japón',fecha:'2026-06-14',hora:'16:00',estadio:'AT&T Stadium, Dallas'},
+{id:12,grupo:'Grupo F',fase:'Fase de grupos',a:'Suecia',b:'Túnez',fecha:'2026-06-14',hora:'22:00',estadio:'Estadio BBVA, Monterrey'},
+{id:13,grupo:'Grupo H',fase:'Fase de grupos',a:'Arabia Saudí',b:'Uruguay',fecha:'2026-06-15',hora:'18:00',estadio:'Hard Rock Stadium, Miami'},
+{id:14,grupo:'Grupo H',fase:'Fase de grupos',a:'España',b:'Cabo Verde',fecha:'2026-06-15',hora:'12:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:15,grupo:'Grupo G',fase:'Fase de grupos',a:'Irán',b:'Nueva Zelanda',fecha:'2026-06-15',hora:'21:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:16,grupo:'Grupo G',fase:'Fase de grupos',a:'Bélgica',b:'Egipto',fecha:'2026-06-15',hora:'15:00',estadio:'Lumen Field, Seattle'},
+{id:17,grupo:'Grupo I',fase:'Fase de grupos',a:'Francia',b:'Senegal',fecha:'2026-06-16',hora:'15:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:18,grupo:'Grupo I',fase:'Fase de grupos',a:'Irak',b:'Noruega',fecha:'2026-06-16',hora:'18:00',estadio:'Gillette Stadium, Boston'},
+{id:19,grupo:'Grupo J',fase:'Fase de grupos',a:'Argentina',b:'Argelia',fecha:'2026-06-16',hora:'21:00',estadio:'Arrowhead Stadium, Kansas City'},
+{id:20,grupo:'Grupo J',fase:'Fase de grupos',a:'Austria',b:'Jordania',fecha:'2026-06-17',hora:'00:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:21,grupo:'Grupo L',fase:'Fase de grupos',a:'Ghana',b:'Panamá',fecha:'2026-06-17',hora:'19:00',estadio:'BMO Field, Toronto'},
+{id:22,grupo:'Grupo L',fase:'Fase de grupos',a:'Inglaterra',b:'Croacia',fecha:'2026-06-17',hora:'16:00',estadio:'AT&T Stadium, Dallas'},
+{id:23,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'RD de Congo',fecha:'2026-06-17',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:24,grupo:'Grupo K',fase:'Fase de grupos',a:'Uzbekistán',b:'Colombia',fecha:'2026-06-17',hora:'22:00',estadio:'Estadio Azteca, Ciudad de México'},
+{id:25,grupo:'Grupo A',fase:'Fase de grupos',a:'Chequia',b:'Sudáfrica',fecha:'2026-06-18',hora:'12:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:26,grupo:'Grupo B',fase:'Fase de grupos',a:'Suiza',b:'Bosnia y Herzegovina',fecha:'2026-06-18',hora:'15:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:27,grupo:'Grupo B',fase:'Fase de grupos',a:'Canadá',b:'Qatar',fecha:'2026-06-18',hora:'18:00',estadio:'BC Place, Vancouver'},
+{id:28,grupo:'Grupo A',fase:'Fase de grupos',a:'México',b:'Rep. de Corea',fecha:'2026-06-18',hora:'21:00',estadio:'Estadio Akron, Guadalajara'},
+{id:29,grupo:'Grupo C',fase:'Fase de grupos',a:'Brasil',b:'Haití',fecha:'2026-06-19',hora:'21:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:30,grupo:'Grupo C',fase:'Fase de grupos',a:'Escocia',b:'Marruecos',fecha:'2026-06-19',hora:'18:00',estadio:'Gillette Stadium, Boston'},
+{id:31,grupo:'Grupo D',fase:'Fase de grupos',a:'Turquía',b:'Paraguay',fecha:'2026-06-19',hora:'23:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:32,grupo:'Grupo D',fase:'Fase de grupos',a:'EE. UU.',b:'Australia',fecha:'2026-06-19',hora:'15:00',estadio:'Lumen Field, Seattle'},
+{id:33,grupo:'Grupo E',fase:'Fase de grupos',a:'Alemania',b:'Costa de Marfil',fecha:'2026-06-20',hora:'16:00',estadio:'BMO Field, Toronto'},
+{id:34,grupo:'Grupo E',fase:'Fase de grupos',a:'Ecuador',b:'Curazao',fecha:'2026-06-20',hora:'20:00',estadio:'Arrowhead Stadium, Kansas City'},
+{id:35,grupo:'Grupo F',fase:'Fase de grupos',a:'Países Bajos',b:'Suecia',fecha:'2026-06-20',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:36,grupo:'Grupo F',fase:'Fase de grupos',a:'Túnez',b:'Japón',fecha:'2026-06-21',hora:'00:00',estadio:'Estadio BBVA, Monterrey'},
+{id:37,grupo:'Grupo H',fase:'Fase de grupos',a:'Uruguay',b:'Cabo Verde',fecha:'2026-06-21',hora:'18:00',estadio:'Hard Rock Stadium, Miami'},
+{id:38,grupo:'Grupo H',fase:'Fase de grupos',a:'España',b:'Arabia Saudí',fecha:'2026-06-21',hora:'12:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:39,grupo:'Grupo G',fase:'Fase de grupos',a:'Bélgica',b:'Irán',fecha:'2026-06-21',hora:'15:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:40,grupo:'Grupo G',fase:'Fase de grupos',a:'Nueva Zelanda',b:'Egipto',fecha:'2026-06-21',hora:'21:00',estadio:'BC Place, Vancouver'},
+{id:41,grupo:'Grupo I',fase:'Fase de grupos',a:'Noruega',b:'Senegal',fecha:'2026-06-22',hora:'20:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:42,grupo:'Grupo I',fase:'Fase de grupos',a:'Francia',b:'Irak',fecha:'2026-06-22',hora:'17:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:43,grupo:'Grupo J',fase:'Fase de grupos',a:'Argentina',b:'Austria',fecha:'2026-06-22',hora:'13:00',estadio:'AT&T Stadium, Dallas'},
+{id:44,grupo:'Grupo J',fase:'Fase de grupos',a:'Jordania',b:'Argelia',fecha:'2026-06-22',hora:'23:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:45,grupo:'Grupo L',fase:'Fase de grupos',a:'Inglaterra',b:'Ghana',fecha:'2026-06-23',hora:'16:00',estadio:'Gillette Stadium, Boston'},
+{id:46,grupo:'Grupo L',fase:'Fase de grupos',a:'Panamá',b:'Croacia',fecha:'2026-06-23',hora:'19:00',estadio:'BMO Field, Toronto'},
+{id:47,grupo:'Grupo K',fase:'Fase de grupos',a:'Portugal',b:'Uzbekistán',fecha:'2026-06-23',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:48,grupo:'Grupo K',fase:'Fase de grupos',a:'Colombia',b:'RD de Congo',fecha:'2026-06-23',hora:'22:00',estadio:'Estadio Akron, Guadalajara'},
+{id:49,grupo:'Grupo C',fase:'Fase de grupos',a:'Escocia',b:'Brasil',fecha:'2026-06-24',hora:'18:00',estadio:'Hard Rock Stadium, Miami'},
+{id:50,grupo:'Grupo C',fase:'Fase de grupos',a:'Marruecos',b:'Haití',fecha:'2026-06-24',hora:'18:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:51,grupo:'Grupo B',fase:'Fase de grupos',a:'Suiza',b:'Canadá',fecha:'2026-06-24',hora:'15:00',estadio:'BC Place, Vancouver'},
+{id:52,grupo:'Grupo B',fase:'Fase de grupos',a:'Bosnia y Herzegovina',b:'Qatar',fecha:'2026-06-24',hora:'15:00',estadio:'Lumen Field, Seattle'},
+{id:53,grupo:'Grupo A',fase:'Fase de grupos',a:'Chequia',b:'México',fecha:'2026-06-24',hora:'21:00',estadio:'Estadio Azteca, Ciudad de México'},
+{id:54,grupo:'Grupo A',fase:'Fase de grupos',a:'Sudáfrica',b:'Rep. de Corea',fecha:'2026-06-24',hora:'21:00',estadio:'Estadio BBVA, Monterrey'},
+{id:55,grupo:'Grupo E',fase:'Fase de grupos',a:'Curazao',b:'Costa de Marfil',fecha:'2026-06-25',hora:'16:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:56,grupo:'Grupo E',fase:'Fase de grupos',a:'Ecuador',b:'Alemania',fecha:'2026-06-25',hora:'16:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:57,grupo:'Grupo F',fase:'Fase de grupos',a:'Japón',b:'Suecia',fecha:'2026-06-25',hora:'19:00',estadio:'AT&T Stadium, Dallas'},
+{id:58,grupo:'Grupo F',fase:'Fase de grupos',a:'Túnez',b:'Países Bajos',fecha:'2026-06-25',hora:'19:00',estadio:'Arrowhead Stadium, Kansas City'},
+{id:59,grupo:'Grupo D',fase:'Fase de grupos',a:'Turquía',b:'EE. UU.',fecha:'2026-06-25',hora:'22:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:60,grupo:'Grupo D',fase:'Fase de grupos',a:'Paraguay',b:'Australia',fecha:'2026-06-25',hora:'22:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:61,grupo:'Grupo I',fase:'Fase de grupos',a:'Noruega',b:'Francia',fecha:'2026-06-26',hora:'15:00',estadio:'Gillette Stadium, Boston'},
+{id:62,grupo:'Grupo I',fase:'Fase de grupos',a:'Senegal',b:'Irak',fecha:'2026-06-26',hora:'15:00',estadio:'BMO Field, Toronto'},
+{id:63,grupo:'Grupo G',fase:'Fase de grupos',a:'Egipto',b:'Irán',fecha:'2026-06-26',hora:'23:00',estadio:'Lumen Field, Seattle'},
+{id:64,grupo:'Grupo G',fase:'Fase de grupos',a:'Nueva Zelanda',b:'Bélgica',fecha:'2026-06-26',hora:'23:00',estadio:'BC Place, Vancouver'},
+{id:65,grupo:'Grupo H',fase:'Fase de grupos',a:'Cabo Verde',b:'Arabia Saudí',fecha:'2026-06-26',hora:'20:00',estadio:'NRG Stadium, Houston'},
+{id:66,grupo:'Grupo H',fase:'Fase de grupos',a:'Uruguay',b:'España',fecha:'2026-06-26',hora:'20:00',estadio:'Estadio Akron, Guadalajara'},
+{id:67,grupo:'Grupo L',fase:'Fase de grupos',a:'Panamá',b:'Inglaterra',fecha:'2026-06-27',hora:'17:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:68,grupo:'Grupo L',fase:'Fase de grupos',a:'Croacia',b:'Ghana',fecha:'2026-06-27',hora:'17:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:69,grupo:'Grupo J',fase:'Fase de grupos',a:'Argelia',b:'Austria',fecha:'2026-06-27',hora:'22:00',estadio:'Arrowhead Stadium, Kansas City'},
+{id:70,grupo:'Grupo J',fase:'Fase de grupos',a:'Jordania',b:'Argentina',fecha:'2026-06-27',hora:'22:00',estadio:'AT&T Stadium, Dallas'},
+{id:71,grupo:'Grupo K',fase:'Fase de grupos',a:'Colombia',b:'Portugal',fecha:'2026-06-27',hora:'19:30',estadio:'Hard Rock Stadium, Miami'},
+{id:72,grupo:'Grupo K',fase:'Fase de grupos',a:'RD de Congo',b:'Uzbekistán',fecha:'2026-06-27',hora:'19:30',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:73,grupo:'Eliminación',fase:'Dieciseisavos',a:'2A',b:'2B',fecha:'2026-06-28',hora:'15:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:74,grupo:'Eliminación',fase:'Dieciseisavos',a:'1E',b:'3 A/B/C/D/F',fecha:'2026-06-29',hora:'16:30',estadio:'Gillette Stadium, Boston'},
+{id:75,grupo:'Eliminación',fase:'Dieciseisavos',a:'1F',b:'2C',fecha:'2026-06-29',hora:'21:00',estadio:'Estadio BBVA, Monterrey'},
+{id:76,grupo:'Eliminación',fase:'Dieciseisavos',a:'1C',b:'2F',fecha:'2026-06-29',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:77,grupo:'Eliminación',fase:'Dieciseisavos',a:'1I',b:'3 C/D/F/G/H',fecha:'2026-06-30',hora:'17:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:78,grupo:'Eliminación',fase:'Dieciseisavos',a:'2E',b:'2I',fecha:'2026-06-30',hora:'13:00',estadio:'AT&T Stadium, Dallas'},
+{id:79,grupo:'Eliminación',fase:'Dieciseisavos',a:'1A',b:'3 C/E/F/H/I',fecha:'2026-06-30',hora:'21:00',estadio:'Estadio Azteca, Ciudad de México'},
+{id:80,grupo:'Eliminación',fase:'Dieciseisavos',a:'1L',b:'3 E/H/I/J/K',fecha:'2026-07-01',hora:'12:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:81,grupo:'Eliminación',fase:'Dieciseisavos',a:'1D',b:'3 B/E/F/I/J',fecha:'2026-07-01',hora:'20:00',estadio:'Levi\'s Stadium, San Francisco Bay Area'},
+{id:82,grupo:'Eliminación',fase:'Dieciseisavos',a:'1G',b:'3 A/E/H/I/J',fecha:'2026-07-01',hora:'16:00',estadio:'Lumen Field, Seattle'},
+{id:83,grupo:'Eliminación',fase:'Dieciseisavos',a:'2K',b:'2L',fecha:'2026-07-02',hora:'19:00',estadio:'BMO Field, Toronto'},
+{id:84,grupo:'Eliminación',fase:'Dieciseisavos',a:'1H',b:'2J',fecha:'2026-07-02',hora:'15:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:85,grupo:'Eliminación',fase:'Dieciseisavos',a:'1B',b:'3 E/F/G/I/J',fecha:'2026-07-02',hora:'23:00',estadio:'BC Place, Vancouver'},
+{id:86,grupo:'Eliminación',fase:'Dieciseisavos',a:'1J',b:'2H',fecha:'2026-07-03',hora:'18:00',estadio:'Hard Rock Stadium, Miami'},
+{id:87,grupo:'Eliminación',fase:'Dieciseisavos',a:'1K',b:'3 D/E/I/J/L',fecha:'2026-07-03',hora:'21:30',estadio:'Arrowhead Stadium, Kansas City'},
+{id:88,grupo:'Eliminación',fase:'Dieciseisavos',a:'2D',b:'2G',fecha:'2026-07-03',hora:'14:00',estadio:'AT&T Stadium, Dallas'},
+{id:89,grupo:'Eliminación',fase:'Octavos de final',a:'G74',b:'G77',fecha:'2026-07-04',hora:'17:00',estadio:'Lincoln Financial Field, Filadelfia'},
+{id:90,grupo:'Eliminación',fase:'Octavos de final',a:'G73',b:'G75',fecha:'2026-07-04',hora:'13:00',estadio:'NRG Stadium, Houston'},
+{id:91,grupo:'Eliminación',fase:'Octavos de final',a:'G76',b:'G78',fecha:'2026-07-05',hora:'16:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'},
+{id:92,grupo:'Eliminación',fase:'Octavos de final',a:'G79',b:'G80',fecha:'2026-07-05',hora:'20:00',estadio:'Estadio Azteca, Ciudad de México'},
+{id:93,grupo:'Eliminación',fase:'Octavos de final',a:'G83',b:'G84',fecha:'2026-07-06',hora:'15:00',estadio:'AT&T Stadium, Dallas'},
+{id:94,grupo:'Eliminación',fase:'Octavos de final',a:'G81',b:'G82',fecha:'2026-07-06',hora:'20:00',estadio:'Lumen Field, Seattle'},
+{id:95,grupo:'Eliminación',fase:'Octavos de final',a:'G86',b:'G88',fecha:'2026-07-07',hora:'12:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:96,grupo:'Eliminación',fase:'Octavos de final',a:'G85',b:'G87',fecha:'2026-07-07',hora:'16:00',estadio:'BC Place, Vancouver'},
+{id:97,grupo:'Eliminación',fase:'Cuartos de final',a:'G89',b:'G90',fecha:'2026-07-09',hora:'16:00',estadio:'Gillette Stadium, Boston'},
+{id:98,grupo:'Eliminación',fase:'Cuartos de final',a:'G93',b:'G94',fecha:'2026-07-10',hora:'15:00',estadio:'SoFi Stadium, Los Ángeles'},
+{id:99,grupo:'Eliminación',fase:'Cuartos de final',a:'G91',b:'G92',fecha:'2026-07-11',hora:'17:00',estadio:'Hard Rock Stadium, Miami'},
+{id:100,grupo:'Eliminación',fase:'Cuartos de final',a:'G95',b:'G96',fecha:'2026-07-11',hora:'21:00',estadio:'Arrowhead Stadium, Kansas City'},
+{id:101,grupo:'Eliminación',fase:'Semifinal',a:'G97',b:'G98',fecha:'2026-07-14',hora:'15:00',estadio:'AT&T Stadium, Dallas'},
+{id:102,grupo:'Eliminación',fase:'Semifinal',a:'G99',b:'G100',fecha:'2026-07-15',hora:'15:00',estadio:'Mercedes-Benz Stadium, Atlanta'},
+{id:103,grupo:'Eliminación',fase:'3er y 4to puesto',a:'P101',b:'P102',fecha:'2026-07-18',hora:'17:00',estadio:'Hard Rock Stadium, Miami'},
+{id:104,grupo:'Final',fase:'Final',a:'G101',b:'G102',fecha:'2026-07-19',hora:'15:00',estadio:'MetLife Stadium, Nueva York/Nueva Jersey'}
 ];
 const $=s=>document.querySelector(s), list=$('#list'), tabs=$('#tabs'), q=$('#q');
 let filtro='Todos';
@@ -215,16 +267,20 @@ function saveResult(id,field,value){fixture[id]={...(fixture[id]||{ga:'',gb:''})
 function clearResult(id){delete fixture[id]; saveFixture(); render(); toast('Resultado borrado')}
 function toggle(id){marcados=marcados.includes(id)?marcados.filter(x=>x!==id):[...marcados,id]; saveMarked(); renderTabs(); render(); toast(marcados.includes(id)?'Partido marcado':'Partido desmarcado')}
 function renderTabs(){let cats=['Todos','Marcados','Fase de grupos','Eliminación','Final']; tabs.innerHTML=cats.map(c=>`<button class="chip ${c===filtro?'active':''}" onclick="filtro='${c}';renderTabs();render()">${c}</button>`).join('')}
-function toICSDate(p){return p.fecha.replaceAll('-','')+'T'+p.hora.replace(':','')+'00'}
-function endTime(p){let [h,m]=p.hora.split(':').map(Number); h=(h+2)%24; return p.fecha.replaceAll('-','')+'T'+String(h).padStart(2,'0')+String(m).padStart(2,'0')+'00'}
+function pad2(n){return String(n).padStart(2,'0')}
+function formatICSLocal(dt){return dt.getUTCFullYear()+pad2(dt.getUTCMonth()+1)+pad2(dt.getUTCDate())+'T'+pad2(dt.getUTCHours())+pad2(dt.getUTCMinutes())+'00'}
+function localDateFromParts(fecha,hora,addHours=0){const [y,m,d]=fecha.split('-').map(Number); const [h,min]=hora.split(':').map(Number); return new Date(Date.UTC(y,m-1,d,h+addHours,min,0))}
+function toICSDate(p){return formatICSLocal(localDateFromParts(p.fecha,p.hora,0))}
+function endTime(p){return formatICSLocal(localDateFromParts(p.fecha,p.hora,2))}
+function sortedPartidos(){return [...PARTIDOS].sort((a,b)=>kickoffDate(a)-kickoffDate(b)||a.id-b.id)}
 function cleanICS(v){return String(v||'').replace(/\n/g,' ').replace(/,/g,'\\,').replace(/;/g,'\\;')}
 function makeOneEvent(p){const A=teamName(p,'a'),B=teamName(p,'b'),win=resultFromGoals(p); const marcador=fixture[p.id]&&fixture[p.id].ga!==''&&fixture[p.id].gb!==''?` Marcador: ${fixture[p.id].ga}-${fixture[p.id].gb}.`:''; return `BEGIN:VEVENT\nUID:mundial2026-${p.id}@fixture-local\nDTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z\nDTSTART;TZID=America/New_York:${toICSDate(p)}\nDTEND;TZID=America/New_York:${endTime(p)}\nSUMMARY:${cleanICS('Mundial 2026: '+A+' vs '+B)}\nLOCATION:${cleanICS(p.estadio)}\nDESCRIPTION:${cleanICS('Partido '+p.id+' - '+p.fase+'. Horario base ET.'+marcador+(win?' Ganador/resultado: '+win+'.':''))}\nEND:VEVENT`}
-function downloadAllICS(){const blob=new Blob([`BEGIN:VCALENDAR\nVERSION:2.0\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\nPRODID:-//Fixture Mundial 2026//ES\nX-WR-CALNAME:Fixture Mundial 2026\nX-WR-TIMEZONE:America/New_York\n${PARTIDOS.map(makeOneEvent).join('\n')}\nEND:VCALENDAR`],{type:'text/calendar;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mundial-2026-calendario-completo.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href); toast('Calendario general descargado')}
+function downloadAllICS(){const blob=new Blob([`BEGIN:VCALENDAR\nVERSION:2.0\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\nPRODID:-//Fixture Mundial 2026//ES\nX-WR-CALNAME:Fixture Mundial 2026\nX-WR-TIMEZONE:America/New_York\n${sortedPartidos().map(makeOneEvent).join('\n')}\nEND:VCALENDAR`],{type:'text/calendar;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mundial-2026-calendario-completo.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href); toast('Calendario general descargado')}
 function renderPreview(){const ids=[89,90,97,98,101,102,103,104]; $('#bracketPreview').innerHTML=ids.map(id=>{const p=getP(id), A=teamName(p,'a'), B=teamName(p,'b'), W=resultFromGoals(p); return `<div class="miniCard"><b>Partido ${id} · ${p.fase}</b>${A} vs ${B}<br>${W?`Resultado: ${W}`:'Pendiente'}</div>`}).join('')}
 function includeByFilter(p){if(filtro==='Todos')return true; if(filtro==='Marcados')return marcados.includes(p.id); if(filtro==='Fase de grupos')return p.fase==='Fase de grupos'; if(filtro==='Eliminación')return p.grupo==='Eliminación'; if(filtro==='Final')return p.grupo==='Final'||p.fase==='3er y 4to puesto'; return true}
 function render(){
   let term=q.value.toLowerCase();
-  let data=PARTIDOS.filter(p=>includeByFilter(p)&&`${teamName(p,'a')} ${teamName(p,'b')} ${p.a} ${p.b} ${p.estadio} ${p.grupo} ${p.fase}`.toLowerCase().includes(term));
+  let data=PARTIDOS.filter(p=>includeByFilter(p)&&`${teamName(p,'a')} ${teamName(p,'b')} ${p.a} ${p.b} ${p.estadio} ${p.grupo} ${p.fase}`.toLowerCase().includes(term)).sort((a,b)=>kickoffDate(a)-kickoffDate(b)||a.id-b.id);
   list.innerHTML=data.length?data.map((p,i)=>{
     let m=marcados.includes(p.id), r=fixture[p.id]||{ga:'',gb:''}, A=teamName(p,'a'), B=teamName(p,'b'), win=resultFromGoals(p);
     let sourceBadge=r.auto?`<span class="winnerPill">🔄 Marcador automático</span>`:(hasScore(r)?`<span class="winnerPill">✍️ Marcador manual</span>`:'');
